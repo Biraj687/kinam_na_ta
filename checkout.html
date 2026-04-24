@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINAM NA TA | Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',
+                            secondary: '#000000',
+                            bg: '#F9FAFB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .payment-option input:checked + label {
+            border-color: #FF4C3B;
+            background-color: #FFF2EE;
+        }
+        .toggle-input:checked + .toggle-slider {
+            transform: translateX(1.75rem);
+            background-color: #FF4C3B;
+        }
+        .toggle-slider {
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-bg text-brand-secondary">
+    <header class="w-full bg-white border-b border-gray-200 text-sm sticky top-0 z-40 shadow-sm">
+        <div class="max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 transition hover:opacity-80">
+                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">KINAM<br/>NA TA</div>
+            </a>
+            <div class="flex flex-wrap items-center gap-4 justify-between">
+                <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Home</a>
+                <a href="cart.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Cart</a>
+                <a href="product.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Shop</a>
+                <a href="login.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-[7rem] py-10">
+        <section class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+                <p class="text-sm uppercase tracking-wide text-gray-500 font-semibold">Secure checkout</p>
+                <h1 class="mt-3 text-3xl md:text-4xl font-extrabold text-[#121212]">Complete your order</h1>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-3">
+                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Fast delivery</p>
+                    <p class="mt-2 text-sm text-gray-700">Local shipping within 48 hrs</p>
+                </div>
+                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Wholesale ready</p>
+                    <p class="mt-2 text-sm text-gray-700">Bulk pricing unlocked</p>
+                </div>
+                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Trusted pay</p>
+                    <p class="mt-2 text-sm text-gray-700">Multiple smart payment flows</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid gap-8 xl:grid-cols-[1.3fr_0.75fr]">
+            <section class="space-y-6">
+                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Wholesale mode</p>
+                            <h2 class="mt-2 text-xl font-bold text-[#121212]">Order with bulk savings</h2>
+                        </div>
+                        <div class="flex items-center gap-4 rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm">
+                            <div class="flex flex-col text-sm">
+                                <span class="font-semibold text-[#121212]">Wholesale unlocked</span>
+                                <span class="text-gray-500">Buy 6+ units to save 15%</span>
+                            </div>
+                            <label class="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-300 p-1 transition">
+                                <input id="wholesaleToggle" type="checkbox" class="toggle-input peer sr-only">
+                                <span class="toggle-slider absolute left-1 top-1 h-6 w-6 rounded-full bg-white shadow transition-transform"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="mt-5 text-sm leading-6 text-gray-600">Wholesale pricing is automatically applied when eligible items are in your cart. Add more from the same brand to see live bulk discounts and invoice support.</p>
+                </div>
+
+                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-6">
+                        <div>
+                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Shipping details</p>
+                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Delivery address</h2>
+                        </div>
+                        <span class="rounded-full bg-[#FF4C3B]/10 px-3 py-1 text-xs font-semibold text-[#FF4C3B]">Fastest</span>
+                    </div>
+
+                    <form class="grid gap-4">
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <label class="block text-sm font-medium text-gray-700">
+                                Full name
+                                <input type="text" placeholder="Sita Sharma" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                            </label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Mobile number
+                                <input type="tel" placeholder="9841 234 567" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                            </label>
+                        </div>
+                        <label class="block text-sm font-medium text-gray-700">
+                            Email address
+                            <input type="email" placeholder="sita@example.com" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                        </label>
+                        <label class="block text-sm font-medium text-gray-700">
+                            Delivery address
+                            <input type="text" placeholder="House no. 12, New Road, Lazimpat" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                        </label>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <label class="block text-sm font-medium text-gray-700">
+                                City
+                                <input type="text" placeholder="Kathmandu" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                            </label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Postal code
+                                <input type="text" placeholder="44600" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
+                            </label>
+                        </div>
+                        <label class="block text-sm font-medium text-gray-700">
+                            Delivery note
+                            <textarea rows="3" placeholder="Leave the package at the reception..." class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10"></textarea>
+                        </label>
+                    </form>
+                </div>
+
+                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-5">
+                        <div>
+                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Payment method</p>
+                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Choose your way to pay</h2>
+                        </div>
+                        <span class="text-xs text-gray-500">3+ options</span>
+                    </div>
+
+                    <div class="grid gap-4">
+                        <input type="radio" id="pay-card" name="payment" class="sr-only" checked />
+                        <label for="pay-card" class="payment-option flex cursor-pointer flex-col gap-4 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="font-semibold text-[#121212]">Card & Wallet</p>
+                                    <p class="text-sm text-gray-500">Visa, Mastercard, eSewa, Khalti</p>
+                                </div>
+                                <div class="inline-flex items-center rounded-full bg-[#FF4C3B]/10 px-3 py-1 text-xs font-semibold text-[#FF4C3B]">Fastest</div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="inline-flex items-center gap-2 rounded-2xl bg-gray-100 px-3 py-1 text-xs text-gray-600">
+                                    <i data-lucide="credit-card" class="w-4 h-4"></i>
+                                    Card
+                                </span>
+                                <img src="images/footer/e%20sewa.png" alt="eSewa" class="h-6 w-auto rounded-full bg-white p-1 border border-gray-200" />
+                                <img src="images/footer/khalti.png" alt="Khalti" class="h-6 w-auto rounded-full bg-white p-1 border border-gray-200" />
+                            </div>
+                        </label>
+
+                        <input type="radio" id="pay-upi" name="payment" class="sr-only" />
+                        <label for="pay-upi" class="payment-option flex cursor-pointer flex-col gap-3 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="font-semibold text-[#121212]">UPI Flash Pay</p>
+                                    <p class="text-sm text-gray-500">Scan QR or use your favorite app.</p>
+                                </div>
+                                <div class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Instant</div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="images/footer/e%20sewa.png" alt="eSewa" class="h-7 w-auto rounded-xl border border-gray-200 bg-white p-1" />
+                                <img src="images/footer/khalti.png" alt="Khalti" class="h-7 w-auto rounded-xl border border-gray-200 bg-white p-1" />
+                            </div>
+                        </label>
+
+                        <input type="radio" id="pay-cod" name="payment" class="sr-only" />
+                        <label for="pay-cod" class="payment-option flex cursor-pointer flex-col gap-3 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-semibold text-[#121212]">Cash on Delivery</p>
+                                    <p class="text-sm text-gray-500">Pay at your doorstep with a small fee.</p>
+                                </div>
+                                <div class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Reliable</div>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
+                                <i data-lucide="truck" class="w-4 h-4"></i>
+                                <span>Payment collected by delivery partner.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="space-y-6">
+                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center justify-between gap-4 mb-6">
+                        <div>
+                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Order summary</p>
+                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Review your items</h2>
+                        </div>
+                        <span class="rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-semibold text-brand-primary">Wholesale</span>
+                    </div>
+
+                    <div class="grid gap-4 mb-6">
+                        <div class="rounded-3xl bg-gray-50 p-4">
+                            <div class="relative overflow-hidden rounded-3xl bg-white shadow-sm">
+                                <img src="images/earbuds.jpg" alt="True Wireless Earbuds" class="h-52 w-full object-cover" />
+                                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                    <p class="text-sm font-semibold text-white">True Wireless Earbuds</p>
+                                    <p class="text-xs text-gray-200">50 MP call clarity, ANC, wireless charging</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 grid gap-3 border border-gray-200 rounded-3xl bg-white p-4">
+                                <div class="flex items-center justify-between text-sm text-gray-600">
+                                    <span>Unit price</span>
+                                    <span>NPR 5,950</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm text-gray-600">
+                                    <span>Quantity</span>
+                                    <span>2</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm text-gray-600">
+                                    <span>Wholesale discount</span>
+                                    <span id="itemDiscount" class="text-[#0F9D58] font-semibold">NPR 0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-gray-200 bg-white p-5">
+                            <div class="flex items-center justify-between text-sm text-gray-500"><span>Subtotal</span><span>NPR 11,900</span></div>
+                            <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Shipping</span><span>NPR 350</span></div>
+                            <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Tax & duties</span><span>NPR 180</span></div>
+                            <div class="mt-4 border-t border-gray-200 pt-4 flex items-center justify-between text-xl font-bold text-[#121212]">
+                                <span>Total</span>
+                                <span id="orderTotal">NPR 12,430</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-gray-200 bg-white p-5">
+                        <div class="flex items-center justify-between text-sm text-gray-500"><span>Subtotal</span><span id="subtotalAmount">NPR 11,900</span></div>
+                        <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Shipping</span><span id="shippingAmount">NPR 350</span></div>
+                        <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Tax & duties</span><span id="taxAmount">NPR 180</span></div>
+                        <div class="mt-4 flex items-center justify-between text-sm text-[#0F9D58]"><span>Wholesale discount</span><span id="wholesaleDiscount">NPR 0</span></div>
+                    </div>
+
+                    <div class="rounded-3xl border border-gray-200 bg-white p-5">
+                        <div class="flex items-start gap-3">
+                            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FF4C3B]/10 text-brand-primary"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
+                            <div>
+                                <p class="text-sm font-semibold text-[#121212]">Need invoice support?</p>
+                                <p class="mt-1 text-sm text-gray-500">Send order details to request VAT/PAN invoice directly after checkout.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Instant checkout</p>
+                        <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Safe pay</span>
+                    </div>
+                    <div class="grid gap-4">
+                        <button class="inline-flex items-center justify-between rounded-3xl border border-gray-200 bg-[#000000] px-4 py-4 text-left text-white shadow-sm transition hover:bg-[#1a1a1a]">
+                            <div>
+                                <p class="font-semibold">KINAM Slice</p>
+                                <p class="mt-1 text-sm text-gray-200">Pay in 3 equal monthly installments.</p>
+                            </div>
+                            <span class="text-xs uppercase tracking-wide text-gray-200">NEW</span>
+                        </button>
+                        <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
+                            <p class="text-sm font-semibold text-[#121212]">Payment Preview</p>
+                            <div class="mt-3 grid gap-3 text-sm text-gray-600">
+                                <div class="flex justify-between"><span>Estimated delivery</span><span>Apr 26 – Apr 28</span></div>
+                                <div class="flex justify-between"><span>Rewards earned</span><span>₨ 124</span></div>
+                                <div class="flex justify-between"><span>Delivery partner</span><span>FastDrop Express</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="confirmButton" class="w-full rounded-3xl bg-brand-primary px-6 py-4 text-base font-bold text-white shadow-[0_16px_40px_rgba(255,76,59,0.18)] transition hover:bg-[#e43e2f]">Pay NPR 12,430 now</button>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wholesaleToggle = document.getElementById('wholesaleToggle');
+            const wholesaleLabel = document.querySelector('[for="wholesaleToggle"]');
+            const wholesaleDiscount = document.getElementById('wholesaleDiscount');
+            const orderTotal = document.getElementById('orderTotal');
+            const confirmButton = document.getElementById('confirmButton');
+
+            const baseSubtotal = 11900;
+            const shipping = 350;
+            const tax = 180;
+            const discount = 1750;
+
+            const itemDiscount = document.getElementById('itemDiscount');
+
+            const updateTotals = () => {
+                const wholesale = wholesaleToggle.checked;
+                const total = baseSubtotal + shipping + tax - (wholesale ? discount : 0);
+                wholesaleDiscount.textContent = wholesale ? `NPR ${discount.toLocaleString('en-US')}` : 'NPR 0';
+                itemDiscount.textContent = wholesale ? `- NPR ${discount.toLocaleString('en-US')}` : 'NPR 0';
+                orderTotal.textContent = `NPR ${total.toLocaleString('en-US')}`;
+                confirmButton.textContent = `Pay NPR ${total.toLocaleString('en-US')} now`;
+            };
+
+            wholesaleToggle.addEventListener('change', () => {
+                wholesaleLabel.innerHTML = wholesaleToggle.checked
+                    ? '<span class="text-sm font-semibold text-[#121212]">Wholesale mode active</span><p class="text-xs text-gray-500">Bulk pricing applied to your order.</p>'
+                    : '<span class="text-sm font-semibold text-[#121212]">Wholesale unlocked</span><p class="text-xs text-gray-500">Buy 6+ units to save 15%.</p>';
+                updateTotals();
+            });
+
+            updateTotals();
+        });
+    </script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
