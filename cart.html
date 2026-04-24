@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINAM NA TA | Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',
+                            secondary: '#000000',
+                            bg: '#ffffff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-[#000000] antialiased">
+    <header class="w-full bg-white border-b border-gray-200 text-sm">
+        
+        <!-- Main Header Row -->
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between gap-8">
+            
+            <!-- Logo -->
+                <a href="#" class="flex-shrink-0">
+                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                </a>
+
+                <!-- Search Bar -->
+                <div class="flex-grow flex-1 px-4">
+                    <form class="flex w-full items-stretch">
+                        <input type="text" placeholder="I'm shopping for..." class="w-full border-2 border-brand-primary border-r-0 rounded-l-md px-4 py-2 text-base focus:outline-none focus:ring-0 placeholder-gray-400 font-medium">
+                        <button type="submit" class="bg-brand-primary text-white px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
+                            <i data-lucide="search" class="w-5 h-5 mr-1 text-white"></i> Search
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Header Actions Row -->
+                <div class="flex items-center space-x-6 flex-shrink-0">
+                    
+                    <!-- Block 1: App Download -->
+                    <a href="#" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <i data-lucide="smartphone" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                        <div class="flex flex-col">
+                            <span class="text-[11px] text-gray-500 leading-tight">Download the</span>
+                            <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">KINAM NA TA App</span>
+                        </div>
+                    </a>
+
+                    <!-- Block 2: Account/Welcome -->
+                    <a href="login.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                        <div class="flex flex-col">
+                            <span class="text-[11px] text-gray-500 leading-tight">Welcome</span>
+                            <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">Sign in / Register</span>
+                        </div>
+                    </a>
+
+                    <!-- Block 3: Cart -->
+                    <a href="cart.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <div class="relative">
+                            <i data-lucide="shopping-cart" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                            <span class="absolute -top-1.5 -right-2 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold border border-white">0</span>
+                        </div>
+                        <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight">Cart</span>
+                    </a>
+
+                </div>
+                
+            </div>
+
+            <!-- Navigation Bar (Bottom) -->
+            <div class="w-full border-t border-gray-100 shadow-[0_4px_10px_-4px_rgba(0,0,0,0.05)]">
+                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-8 text-[14px]">
+                    
+                    <!-- All Categories Button -->
+                    <a href="#" id="category-btn" class="flex items-center bg-gray-100 rounded-full px-4 py-2 text-brand-secondary font-bold hover:bg-gray-200 transition flex-shrink-0 cursor-pointer">
+                        <i data-lucide="menu" class="w-5 h-5 mr-2"></i> All Categories
+                    </a>
+                    
+                    <!-- Navigation Links -->
+                    <div class="flex items-center gap-8 flex-1 overflow-x-auto whitespace-nowrap">
+                        <a href="#" class="text-brand-primary font-bold hover:text-red-600 transition">SuperDeals</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Kinam Na Ta Business</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Automotive</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Appliances</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Women's Clothing</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Men's Clothing</a>
+                    </div>
+
+                </nav>
+            </div>
+            
+        </header>
+    <main class="max-w-[1200px] mx-auto py-12 px-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-8">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 transition duration-300 hover:text-[#000000]">
+                <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                <span>Continue Shopping</span>
+            </a>
+            <div class="text-left sm:text-right">
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Shopping Cart</p>
+                <h1 class="mt-1 text-2xl sm:text-[#000000]xl font-bold tracking-tight text-[#000000]">Your Cart</h1>
+                <p id="cart-count-copy" class="mt-1 text-sm text-gray-500">3 active items | 4 units in cart</p>
+            </div>
+        </div>
+
+        <section class="mb-8 rounded-3xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm transition duration-300 hover:shadow-md">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                <div class="max-w-2xl">
+                    <p class="text-xs font-bold uppercase tracking-wider text-[#000000]">Wholesale Mode</p>
+                    <h2 class="mt-2 text-xl font-bold tracking-tight text-[#000000]">Switch to Wholesale Mode</h2>
+                    <p class="mt-2 text-sm leading-6 text-gray-500">Enable bulk pricing to reveal wholesale discounts and request a Tax Invoice (PAN/VAT) directly from the order summary.</p>
+                </div>
+                <label for="wholesale-toggle" class="flex cursor-pointer items-center gap-4 self-start rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm transition duration-300 hover:border-[#000000]/20 hover:bg-white">
+                    <div>
+                        <p class="text-sm font-semibold text-[#000000]">Switch to Wholesale Mode</p>
+                        <p class="text-xs text-gray-500">Applies a 15% bulk discount</p>
+                    </div>
+                    <div id="wholesale-switch" class="relative h-8 w-14 rounded-full bg-gray-300 transition duration-300">
+                        <span id="wholesale-knob" class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white shadow transition duration-300"></span>
+                    </div>
+                    <input id="wholesale-toggle" type="checkbox" class="sr-only">
+                </label>
+            </div>
+        </section>
+
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(320px,3fr)]">
+            <section class="space-y-5">
+                <div id="cart-items" class="space-y-5">
+                    <article data-cart-item data-qty="1" data-sale-price="11200" data-regular-price="14000" data-saved="false" class="rounded-3xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition duration-300 hover:shadow-md">
+                        <div class="flex flex-col gap-5 md:flex-row md:items-center">
+                            <div class="relative shrink-0">
+                                <img src="images/watch.avif" alt="Apex Smart Watch Pro" class="h-32 w-32 rounded-2xl object-cover border border-gray-100 sm:h-36 sm:w-36">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                                    <div class="min-w-0">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <h3 class="text-lg font-bold text-[#000000] sm:text-xl">Apex Smart Watch Pro</h3>
+                                            <span data-saved-badge class="hidden inline-flex items-center rounded-full bg-[#000000]/10 px-2.5 py-1 text-[11px] font-bold text-[#000000]">Saved for later</span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-500">SKU: <span class="font-semibold text-gray-700">KNT-WCH-2418</span></p>
+                                        <div class="mt-2 flex flex-wrap items-center gap-2">
+                                            <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-bold text-gray-700">In Stock</span>
+                                            <span class="text-sm text-gray-400">Ships within 24 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-left sm:text-right">
+                                        <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Your Price</p>
+                                        <p class="mt-1 text-xl font-bold text-[#000000]">NPR 11,200</p>
+                                        <p class="text-sm text-gray-400 line-through">Regular Price NPR 14,000</p>
+                                    </div>
+                                </div>
+                                <div class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                                    <div data-quantity-controls class="inline-flex items-center overflow-hidden rounded-full bg-gray-100 transition duration-300">
+                                        
+                                        <span data-qty-label class="w-12 text-center text-sm font-bold text-[#000000]">1</span>
+                                        
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-5 text-sm font-semibold">
+                                        <button type="button" data-action="save" class="text-[#000000] transition duration-300 hover:text-[#000000]">Save for Later</button>
+                                        <button type="button" data-action="remove" class="text-gray-500 transition duration-300 hover:text-[#000000]">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article data-cart-item data-qty="2" data-sale-price="2450" data-regular-price="3200" data-saved="false" class="rounded-3xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition duration-300 hover:shadow-md">
+                        <div class="flex flex-col gap-5 md:flex-row md:items-center">
+                            <div class="relative shrink-0">
+                                <img src="images/earbuds.jpg" alt="Aurora ANC Earbuds" class="h-32 w-32 rounded-2xl object-cover border border-gray-100 sm:h-36 sm:w-36">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                                    <div class="min-w-0">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <h3 class="text-lg font-bold text-[#000000] sm:text-xl">Aurora ANC Earbuds</h3>
+                                            <span data-saved-badge class="hidden inline-flex items-center rounded-full bg-[#000000]/10 px-2.5 py-1 text-[11px] font-bold text-[#000000]">Saved for later</span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-500">SKU: <span class="font-semibold text-gray-700">KNT-AUD-8931</span></p>
+                                        <div class="mt-2 flex flex-wrap items-center gap-2">
+                                            <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-bold text-gray-700">In Stock</span>
+                                            <span class="text-sm text-gray-400">Ships within 24 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-left sm:text-right">
+                                        <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Your Price</p>
+                                        <p class="mt-1 text-xl font-bold text-[#000000]">NPR 2,450</p>
+                                        <p class="text-sm text-gray-400 line-through">Regular Price NPR 3,200</p>
+                                    </div>
+                                </div>
+                                <div class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                                    <div data-quantity-controls class="inline-flex items-center overflow-hidden rounded-full bg-gray-100 transition duration-300">
+                                        
+                                        <span data-qty-label class="w-12 text-center text-sm font-bold text-[#000000]">2</span>
+                                        
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-5 text-sm font-semibold">
+                                        <button type="button" data-action="save" class="text-[#000000] transition duration-300 hover:text-[#000000]">Save for Later</button>
+                                        <button type="button" data-action="remove" class="text-gray-500 transition duration-300 hover:text-[#000000]">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article data-cart-item data-qty="1" data-sale-price="4300" data-regular-price="5500" data-saved="false" class="rounded-3xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm transition duration-300 hover:shadow-md">
+                        <div class="flex flex-col gap-5 md:flex-row md:items-center">
+                            <div class="relative shrink-0">
+                                <img src="images/controller.jpg" alt="Pulse Wireless Controller" class="h-32 w-32 rounded-2xl object-cover border border-gray-100 sm:h-36 sm:w-36">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                                    <div class="min-w-0">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <h3 class="text-lg font-bold text-[#000000] sm:text-xl">Pulse Wireless Controller</h3>
+                                            <span data-saved-badge class="hidden inline-flex items-center rounded-full bg-[#000000]/10 px-2.5 py-1 text-[11px] font-bold text-[#000000]">Saved for later</span>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-500">SKU: <span class="font-semibold text-gray-700">KNT-GME-5510</span></p>
+                                        <div class="mt-2 flex flex-wrap items-center gap-2">
+                                            <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[11px] font-bold text-gray-700">In Stock</span>
+                                            <span class="text-sm text-gray-400">Ships within 24 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-left sm:text-right">
+                                        <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Your Price</p>
+                                        <p class="mt-1 text-xl font-bold text-[#000000]">NPR 4,300</p>
+                                        <p class="text-sm text-gray-400 line-through">Regular Price NPR 5,500</p>
+                                    </div>
+                                </div>
+                                <div class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                                    <div data-quantity-controls class="inline-flex items-center overflow-hidden rounded-full bg-gray-100 transition duration-300">
+                                        
+                                        <span data-qty-label class="w-12 text-center text-sm font-bold text-[#000000]">1</span>
+                                        
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-5 text-sm font-semibold">
+                                        <button type="button" data-action="save" class="text-[#000000] transition duration-300 hover:text-[#000000]">Save for Later</button>
+                                        <button type="button" data-action="remove" class="text-gray-500 transition duration-300 hover:text-[#000000]">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <section id="empty-state" class="hidden rounded-3xl border border-dashed border-gray-200 bg-white p-10 text-center shadow-sm">
+                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#000000]/10 text-[#000000]">
+                        <i data-lucide="shopping-cart" class="h-7 w-7"></i>
+                    </div>
+                    <h2 class="mt-5 text-xl font-bold tracking-tight text-[#000000]">Your cart is empty</h2>
+                    <p class="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-500">Browse the latest Kinam Na Ta collections and add something new to your bag.</p>
+                    <a href="index.html" class="mt-6 inline-flex items-center justify-center rounded-2xl bg-[#FF4C3B] px-6 py-3 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#e03d2d]">Start Shopping</a>
+                </section>
+            </section>
+
+            <aside class="lg:sticky lg:top-6 h-fit">
+                <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:shadow-md">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Order Summary</p>
+                            <h2 class="mt-2 text-xl font-bold tracking-tight text-[#000000]">Summary</h2>
+                        </div>
+                        <div id="summary-item-badge" class="rounded-full bg-[#000000]/10 px-3 py-1 text-xs font-bold text-[#000000]">3 items</div>
+                    </div>
+
+                    <div class="mt-6 space-y-3 border-b border-gray-200 pb-5">
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Subtotal</span>
+                            <span id="subtotal-value" class="font-semibold text-[#000000]">NPR 0</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>Shipping</span>
+                            <span id="shipping-value" class="font-semibold text-[#000000]">NPR 0</span>
+                        </div>
+                        <p id="shipping-hint" class="-mt-1 text-xs text-gray-400">Free shipping on orders over NPR 6,000.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span>VAT (13%)</span>
+                            <span id="vat-value" class="font-semibold text-[#000000]">NPR 0</span>
+                        </div>
+                        <div id="wholesale-discount-row" class="hidden flex items-center justify-between text-sm text-gray-500">
+                            <span>Wholesale Discount</span>
+                            <span id="wholesale-discount-value" class="font-semibold text-[#000000]">-NPR 0</span>
+                        </div>
+                        <div id="wholesale-summary" class="hidden rounded-2xl border border-gray-200 bg-white p-4">
+                            <div class="flex items-center justify-between text-sm font-semibold text-[#000000]">
+                                <span>Min. Order Quantity (MOQ)</span>
+                                <span id="moq-status" class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-bold text-gray-700">Met</span>
+                            </div>
+                            <div class="mt-3 flex items-center justify-between text-sm font-semibold text-[#000000]">
+                                <span>Wholesale Discount</span>
+                                <span class="text-[#000000]">-15%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label for="coupon-code" class="text-sm font-semibold text-[#000000]">Coupon Code</label>
+                            <div class="mt-2 flex gap-2">
+                                <input id="coupon-code" type="text" placeholder="Enter coupon code" class="min-w-0 flex-1 rounded-2xl border border-gray-200 px-4 py-3 text-sm text-[#000000] outline-none transition duration-300 placeholder:text-gray-400 focus:border-[#FF4C3B] focus:ring-2 focus:ring-[#FF4C3B]/10">
+                                <button type="button" class="rounded-2xl bg-[#FF4C3B] px-4 py-3 text-sm font-bold text-white transition duration-300 hover:bg-[#003c3f]">Apply</button>
+                            </div>
+                        </div>
+
+                        <div id="tax-invoice-wrap" class="hidden">
+                            <label for="tax-invoice" class="text-sm font-semibold text-[#000000]">Tax Invoice (PAN/VAT)</label>
+                            <input id="tax-invoice" type="text" placeholder="Enter PAN / VAT number" class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm text-[#000000] outline-none transition duration-300 placeholder:text-gray-400 focus:border-[#FF4C3B] focus:ring-2 focus:ring-[#FF4C3B]/10">
+                            <p class="mt-2 text-xs text-gray-400">Shown only in Wholesale Mode for business billing.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 rounded-3xl bg-gray-50 p-4 sm:p-5">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-sm font-semibold text-gray-500">Estimated Total</span>
+                            <span id="total-value" class="text-[#000000]xl font-extrabold tracking-tight text-[#000000]">NPR 0</span>
+                        </div>
+                        <p class="mt-2 text-xs leading-5 text-gray-400">Totals update instantly as you adjust quantities or switch wholesale mode.</p>
+                    </div>
+
+                    <button type="button" class="mt-6 w-full rounded-2xl bg-[#FF4C3B] px-4 py-4 text-base font-extrabold tracking-wide text-white shadow-lg shadow-[#FF4C3B]/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e03d2d]">PROCEED TO CHECKOUT</button>
+
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3 transition duration-300 hover:border-[#000000]/20 hover:bg-[#f4fbfb]">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#000000]/10 text-[#000000]"><i data-lucide="badge-check" class="h-5 w-5"></i></div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#000000]">Esewa/Khalti Verified</p>
+                                <p class="text-xs text-gray-500">Secure local payment rails</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3 transition duration-300 hover:border-[#000000]/20 hover:bg-[#f4fbfb]">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#000000]/10 text-[#000000]"><i data-lucide="shield-check" class="h-5 w-5"></i></div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#000000]">100% Genuine</p>
+                                <p class="text-xs text-gray-500">Curated products with quality assurance</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3 transition duration-300 hover:border-[#000000]/20 hover:bg-[#f4fbfb]">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#000000]/10 text-[#000000]"><i data-lucide="rotate-ccw" class="h-5 w-5"></i></div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#000000]">Easy Returns</p>
+                                <p class="text-xs text-gray-500">Flexible support on eligible products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    
+
+    <footer class="w-full bg-[#0a0a0a] text-[#9ca3af] py-6 mt-12 font-sans">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
+            
+            <!-- Top Section (Identity & Newsletter) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-b border-gray-800 pb-8 mb-10">
+                
+                <!-- Left Side: Identity -->
+                <div class="space-y-4">
+                    <div class="text-3xl font-extrabold text-white tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        Nepal's fastest-growing e-commerce destination. Shop smart, shop local delivered across all 77 districts.
+                    </p>
+                </div>
+
+                <!-- Right Side: Newsletter -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center mb-2">
+                        <div class="w-1.5 h-6 bg-[#FF4C3B] rounded-sm mr-3"></div>
+                        <h3 class="text-xs font-bold text-[#FF4C3B] tracking-widest uppercase">NEWSLETTER</h3>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-1 tracking-tight">Get exclusive deals before everyone else</h4>
+                    <p class="text-sm mb-4 text-gray-400">Join 50,000+ Nepali shoppers.</p>
+                    
+                    <form class="flex w-full max-w-md items-stretch">
+                        <input type="email" placeholder="Your email address" class="w-full bg-gray-900 border border-gray-800 rounded-l-lg px-5 py-3 text-sm focus:outline-none focus:border-[#FF4C3B] focus:ring-1 focus:ring-[#FF4C3B] text-white placeholder-gray-500 transition-all duration-300">
+                        <button type="submit" class="bg-[#FF4C3B] text-white px-6 font-bold text-sm rounded-r-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,76,59,0.4)] transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Middle Section (Navigation Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 relative">
+                
+                <!-- Column 1: Shop -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Shop</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: My Account -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">My Account</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="login.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sign In</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Register</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Track My Order</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Wishlist</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Loyalty Points</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Help Center -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Help Center</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">FAQs</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Return Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sell on KNT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Apps -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Contact & Apps</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 shrink-0 mt-0.5"></i>
+                            <span>New Baneshwor, Kathmandu</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="#" class="hover:text-[#FF4C3B] transition-colors duration-300">+977 1 1234567</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="mailto:support@kinamnata.com" class="hover:text-[#FF4C3B] transition-colors duration-300">support@kinamnata.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- App Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <i data-lucide="apple" class="w-6 h-6 text-white group-hover:text-[#FF4C3B] transition-colors"></i>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[10px] text-gray-400 leading-none">Download on the</span>
+                                <span class="text-sm font-bold text-white leading-tight">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-white group-hover:text-[#FF4C3B] transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M4.33 1.95L18.42 10.3l-3.3 2.91-7.85-6.84L4.33 1.95zM3.48 3.5l6.98 6.09L3.48 16.55V3.5zm8.13 7.08l2.9 2.53-2.9 2.53-2.9-2.53 2.9-2.53zm3.72 3.25l3.09-2.7 1.25.75L6.09 21.05l7.24-7.22z"></path></svg>
+                            <div class="flex flex-col text-left ml-2">
+                                <span class="text-[10px] text-gray-400 leading-none">GET IT ON</span>
+                                <span class="text-sm font-bold text-white leading-tight">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Bottom Section (Trust & Payments) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                
+                <!-- Trust Stats & Payments Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8 text-sm">
+                    
+                    <!-- Accepted Payments Bar -->
+                    <div class="flex flex-wrap justify-center items-center gap-3">
+                        <span class="mr-2 text-xs font-semibold uppercase tracking-wider text-gray-500">ACCEPTED PAYMENTS:</span>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#60B52F] shadow-sm flex items-center justify-center"><img src="images/footer/e sewa.png" alt="eSewa" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#5C2D91] shadow-sm flex items-center justify-center"><img src="images/footer/khalti.png" alt="Khalti" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#0055A5] shadow-sm flex items-center justify-center"><img src="images/footer/connect ips.png" alt="ConnectIPS" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-gray-800 px-2.5 py-1.5 rounded-sm border-b-2 border-[#FF4C3B] text-[11px] font-bold text-[#FF4C3B] tracking-tight shadow-sm flex items-center">C.O.D</div>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-white font-semibold">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>50K+ Customers</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="package" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>10K+ Products</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="map" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>77 Districts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="border-t border-gray-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div>
+                        &copy; 2026 Kinam Na Ta Pvt. Ltd. — Registered in Nepal.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+    
+<script>lucide.createIcons();</script>
+</body>
+</html>

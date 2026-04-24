@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <title>Login - KINAM NA TA</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',   // Strict Brand Red
+                            secondary: '#000000', // Strict Black
+                            bg: '#F9FAFB'         // Ultra-light gray bg        
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Professional Font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- Simplified Header -->
+    <header class="w-full bg-white border-b border-gray-200 py-3 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1920px] mx-auto px-4 md:px-8 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex flex-col group transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] outline-none rounded p-1">
+                <span class="text-2xl font-extrabold tracking-tighter text-brand-primary leading-none">KINAM</span>
+                <span class="text-lg font-bold tracking-widest text-[#000000] leading-none mt-0.5">NA TA</span>
+            </a>
+
+            <!-- Back to store -->
+            <a href="index.html" class="flex items-center text-sm font-semibold text-gray-500 hover:text-brand-primary transition-all duration-300 group outline-none rounded p-1 flex-shrink-0">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-all duration-300"></i> Back to Store
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full flex items-center justify-center p-4">
+        <!-- Auth Card -->
+        <div class="w-full max-w-[400px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 transition-all duration-300">
+            <div class="text-center mb-6">
+                <!-- Removed "Back" - only "Welcome" remaining -->
+                <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 mb-1.5">Welcome</h1>
+                <p class="text-sm text-gray-500 font-medium">Please enter your details to sign in.</p>
+            </div>
+
+            <!-- Social Logins -->
+            <div class="flex flex-col gap-3 mb-6">
+                <button class="w-full flex items-center justify-center py-2.5 px-4 border border-gray-200 rounded-xl font-semibold text-sm text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm transition-all duration-300 group outline-none">
+                    <div class="flex items-center justify-start w-[210px]">
+                        <svg class="w-5 h-5 object-contain mr-3 group-hover:scale-105 transition-all duration-300" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#FBBB00" d="M113.47 309.408L95.648 375.94l-65.139 1.378C11.042 341.211 0 299.9 0 256c0-42.451 10.324-82.483 28.624-117.732h.014l57.992 10.632 25.404 57.644c-5.317 15.501-8.215 32.141-8.215 49.456c0 18.336 3.404 36.341 9.649 52.952z"/><path fill="#518EF8" d="M507.527 208.176C510.467 223.662 512 239.655 512 256c0 18.328-1.927 36.206-5.598 53.451c-12.462 58.683-45.025 109.925-90.134 146.187l-.014-.014-73.044-3.727-10.338-64.535c29.932-17.554 53.324-45.025 65.646-77.911h-136.89v-101.275h138.887L507.527 208.176z"/><path fill="#28B446" d="M416.253 455.624l.014.014C372.396 490.901 316.666 512 256 512c-97.491 0-182.252-54.491-225.491-134.681l82.961-67.91c21.619 57.698 77.278 98.771 142.53 98.771 28.047 0 54.323-7.582 76.87-20.818l83.383 68.262z"/><path fill="#F14336" d="M419.404 58.936l-82.933 67.896C313.136 112.246 285.552 103.82 256 103.82c-66.729 0-123.429 42.957-143.965 102.724l-83.397-68.276h-.014C71.23 56.123 157.06 0 256 0c62.115 0 119.068 22.126 163.404 58.936z"/></svg>
+                        <span>Continue with Google</span>
+                    </div>
+                </button>
+                <button class="w-full flex items-center justify-center py-2.5 px-4 border border-gray-200 rounded-xl font-semibold text-sm text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm transition-all duration-300 group outline-none">
+                    <div class="flex items-center justify-start w-[210px]">
+                        <svg class="w-5 h-5 object-contain mr-3 group-hover:scale-105 transition-all duration-300" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m512 256c0 127.78-93.62 233.69-216 252.89v-178.89h59.65l11.35-74h-71v-48.02c0-20.25 9.92-39.98 41.72-39.98h32.28v-63s-29.3-5-57.31-5c-58.47 0-96.69 35.44-96.69 99.6v56.4h-65v74h65v178.89c-122.38-19.2-216-125.11-216-252.89 0-141.38 114.62-256 256-256s256 114.62 256 256z" fill="#1877f2"/><path d="m355.65 330 11.35-74h-71v-48.021c0-20.245 9.918-39.979 41.719-39.979h32.281v-63s-29.296-5-57.305-5c-58.476 0-96.695 35.44-96.695 99.6v56.4h-65v74h65v178.889c13.034 2.045 26.392 3.111 40 3.111s26.966-1.066 40-3.111v-178.889z" fill="#fff"/></svg>
+                        <span>Continue with Facebook</span>
+                    </div>
+                </button>
+            </div>
+
+            <div class="relative flex items-center justify-center mb-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-100"></div>
+                </div>
+                <div class="relative bg-white px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    Or sign in with email
+                </div>
+            </div>
+
+            <!-- Credential Form -->
+            <form action="#" method="POST" class="flex flex-col gap-4">
+                <!-- Email Field -->
+                <div class="flex flex-col gap-1.5">
+                    <label for="email" class="block text-xs font-semibold text-[#004a4d]">Email Address</label>
+                    <input type="email" id="email" class="w-full bg-gray-50/50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all duration-300" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="flex flex-col gap-1.5">
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-xs font-semibold text-[#004a4d]">Password</label>
+                        <a href="#" class="text-xs font-semibold text-brand-primary hover:text-[#d43d2e] hover:underline transition-all duration-300">Forgot Password?</a>
+                    </div>
+                    <input type="password" id="password" class="w-full bg-gray-50/50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all duration-300" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-1">
+                    <button type="submit" class="w-full py-3 bg-[#FF4C3B] text-white text-sm font-bold tracking-wide rounded-xl hover:bg-[#e43e2f] transition-all duration-300 shadow-[0_8px_16px_rgba(255,76,59,0.2)] hover:shadow-[0_10px_20px_rgba(255,76,59,0.3)] hover:-translate-y-0.5 focus:outline-none flex items-center justify-center group gap-2">
+                        Sign In
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-all duration-300"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Toggle View -->
+            <div class="mt-6 text-center text-sm text-gray-500 font-medium">
+                Don't have an account? 
+                <a href="signup.html" class="text-[#FF4C3B] font-bold hover:text-[#d43d2e] hover:underline transition-all duration-300 ml-1 group">Sign Up</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Init Lucide Icons -->
+    <script>lucide.createIcons();</script>
+</body>
+</html>

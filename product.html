@@ -1,0 +1,561 @@
+<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: AliExpress (High-density, white cards, red-orange accents) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINAM NA TA</title>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',   // Strict Brand Red
+                            secondary: '#000000', // Strict Black
+                            bg: '#F9FAFB'         // Ultra-light gray bg
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Professional Font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-bg text-brand-secondary">
+    
+    <!-- Main Header Section -->
+    <header class="w-full bg-white border-b border-gray-200 text-sm">
+        
+        <!-- Main Header Row -->
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between gap-8">
+            
+            <!-- Logo -->
+                <a href="#" class="flex-shrink-0">
+                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                </a>
+
+                <!-- Search Bar -->
+                <div class="flex-grow flex-1 px-4">
+                    <form class="flex w-full items-stretch">
+                        <input type="text" placeholder="I'm shopping for..." class="w-full border-2 border-brand-primary border-r-0 rounded-l-md px-4 py-2 text-base focus:outline-none focus:ring-0 placeholder-gray-400 font-medium">
+                        <button type="submit" class="bg-brand-primary text-white px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
+                            <i data-lucide="search" class="w-5 h-5 mr-1 text-white"></i> Search
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Header Actions Row -->
+                <div class="flex items-center space-x-6 flex-shrink-0">
+                    
+                    <!-- Block 1: App Download -->
+                    <a href="#" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <i data-lucide="smartphone" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                        <div class="flex flex-col">
+                            <span class="text-[11px] text-gray-500 leading-tight">Download the</span>
+                            <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">KINAM NA TA App</span>
+                        </div>
+                    </a>
+
+                    <!-- Block 2: Account/Welcome -->
+                    <a href="login.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                        <div class="flex flex-col">
+                            <span class="text-[11px] text-gray-500 leading-tight">Welcome</span>
+                            <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">Sign in / Register</span>
+                        </div>
+                    </a>
+
+                    <!-- Block 3: Cart -->
+                    <a href="cart.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                        <div class="relative">
+                            <i data-lucide="shopping-cart" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
+                            <span class="absolute -top-1.5 -right-2 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold border border-white">0</span>
+                        </div>
+                        <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight">Cart</span>
+                    </a>
+
+                </div>
+                
+            </div>
+
+            <!-- Navigation Bar (Bottom) -->
+            <div class="w-full border-t border-gray-100 shadow-[0_4px_10px_-4px_rgba(0,0,0,0.05)]">
+                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-8 text-[14px]">
+                    
+                    <!-- All Categories Button -->
+                    <a href="#" id="category-btn" class="flex items-center bg-gray-100 rounded-full px-4 py-2 text-brand-secondary font-bold hover:bg-gray-200 transition flex-shrink-0 cursor-pointer">
+                        <i data-lucide="menu" class="w-5 h-5 mr-2"></i> All Categories
+                    </a>
+                    
+                    <!-- Navigation Links -->
+                    <div class="flex items-center gap-8 flex-1 overflow-x-auto whitespace-nowrap">
+                        <a href="#" class="text-brand-primary font-bold hover:text-red-600 transition">SuperDeals</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Kinam Na Ta Business</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Automotive</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Appliances</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Women's Clothing</a>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-brand-primary transition">Men's Clothing</a>
+                    </div>
+
+                </nav>
+            </div>
+            
+        </header>
+
+    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-12">
+        <!-- Breadcrumb -->
+        <nav class="flex text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="index.html" class="inline-flex items-center hover:text-[#FF4C3B] transition-colors">Home</a>
+                </li>
+                <li><div class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i><a href="#" class="hover:text-[#FF4C3B] transition-colors">Electronics</a></div></li>
+                <li aria-current="page"><div class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i><span class="text-gray-900 font-medium">True Wireless Earbuds</span></div></li>
+            </ol>
+        </nav>
+
+        <!-- Top Row: Product Info & Images -->
+        <div class="flex flex-col lg:flex-row gap-12 mb-16 items-start relative">
+            
+            <!-- Left Column: Images & Specs -->
+            <div class="w-full lg:w-1/2 flex flex-col gap-6 sticky top-8">
+                <!-- Image Gallery -->
+                <div class="flex gap-4 h-[400px] sm:h-[500px]">
+                    <!-- Thumbnails -->
+                    <div class="flex flex-col gap-3 w-20 overflow-y-auto scrollbar-hide flex-shrink-0">
+                        <button class="w-full aspect-square bg-gray-50 rounded-2xl border-2 border-[#FF4C3B] p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors" data-img="images/earbuds%201.png">
+                            <img src="images/earbuds%201.png" alt="White Variant" class="max-w-full max-h-full object-contain">
+                        </button>
+                        <button class="w-full aspect-square bg-gray-50 rounded-2xl border-2 border-transparent hover:border-gray-300 p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors" data-img="images/earbuds.jpg">
+                            <img src="images/earbuds.jpg" alt="Black Variant" class="max-w-full max-h-full object-contain">
+                        </button>
+                    </div>
+                    
+                    <!-- Main Image -->
+                    <div class="flex-1 bg-gray-50 rounded-3xl flex items-center justify-center p-8 relative overflow-hidden group">
+                        <button class="absolute top-4 right-4 bg-white/80 backdrop-blur-[2px] p-2.5 rounded-full shadow-sm text-gray-700 hover:text-[#FF4C3B] hover:bg-white transition-all z-10">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </button>
+                        <img id="main-product-image" src="images/earbuds%201.png" alt="True Wireless Earbuds" class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]">
+                    </div>
+                </div>
+
+                <!-- Technical Specs Fill Block -->
+                <div class="bg-gray-50 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-[#000000] mb-4">Technical Specifications</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Bluetooth</span>
+                            <span class="text-sm font-medium text-gray-500">5.3 (Ultra-Low Latency)</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Battery Life</span>
+                            <span class="text-sm font-medium text-gray-500">30 hrs (with case)</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Range</span>
+                            <span class="text-sm font-medium text-gray-500">10m / 33ft</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Water Resistance</span>
+                            <span class="text-sm font-medium text-gray-500">IPX4 Splashproof</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Noise Cancelling</span>
+                            <span class="text-sm font-medium text-gray-500">Active (ANC)</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold text-[#000000] mb-0.5">Charging Interface</span>
+                            <span class="text-sm font-medium text-gray-500">USB Type-C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Details & Actions -->
+            <div class="w-full lg:w-1/2 flex flex-col">
+                <div class="mb-4">
+                    <p class="text-[#FF4C3B] font-bold text-sm mb-2 uppercase tracking-wide flex items-center gap-1.5"><i data-lucide="flame" class="w-4 h-4"></i> High Demand</p>
+                    
+                    <h1 class="text-3xl font-extrabold text-black leading-tight mb-3">True Wireless Earbuds Bluetooth 5.3 TWS ANC Active Noise Cancelling Earphones</h1>
+                    
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="flex text-[#FF4C3B]">
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-900 underline underline-offset-2">5.0 (1,245 Reviews)</span>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <span class="text-sm font-bold text-green-600 flex items-center gap-1 bg-green-50 px-2 py-0.5 rounded-full"><i data-lucide="check-circle" class="w-4 h-4"></i> In Stock</span>
+                    </div>
+
+                    <div class="flex flex-col gap-2 mb-6">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-bold text-black">Rs.</span>
+                            <span class="text-4xl font-black text-black tracking-tighter leading-none">2,150</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[15px] text-gray-400 line-through font-medium">Rs. 4,300</span>
+                            <span class="text-[11px] font-extrabold text-brand-primary bg-[#FFF0F0] border border-[#FFE0E0] px-2 py-0.5 rounded-[4px] uppercase tracking-wide">50% Off</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 mb-8">
+                    <!-- Size Selection -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">    
+                            <span class="text-base font-bold text-gray-900">Select Size</span>
+                            <span class="text-sm font-medium text-brand-primary cursor-pointer hover:underline">Size Guide</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="px-5 py-2.5 rounded-xl border-2 border-[#FF4C3B] font-bold text-[#FF4C3B] bg-[#FFF0F0] shadow-sm transition-all focus:outline-none">S</button>
+                            <button class="px-5 py-2.5 rounded-xl border border-gray-200 font-semibold text-gray-600 hover:border-gray-400 hover:text-gray-900 bg-white transition-all focus:outline-none">M</button>
+                            <button class="px-5 py-2.5 rounded-xl border border-gray-200 font-semibold text-gray-600 hover:border-gray-400 hover:text-gray-900 bg-white transition-all focus:outline-none">L</button>
+                            <button class="px-5 py-2.5 rounded-xl border border-gray-200 font-semibold text-gray-600 hover:border-gray-400 hover:text-gray-900 bg-white transition-all focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed">XL</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-base font-bold text-gray-900">Color</span>
+                            <span class="text-sm font-medium text-gray-500" id="selected-color-name">Classic White</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="w-14 h-14 rounded-full border-2 border-[#FF4C3B] p-1 transition-all hover:scale-105 color-variant" data-img="images/earbuds%201.png" data-color="Classic White">
+                                <span class="block w-full h-full rounded-full bg-white shadow-sm border border-gray-200"></span>
+                            </button>
+                            <button class="w-14 h-14 rounded-full border-2 border-transparent hover:border-gray-300 p-1 transition-all hover:scale-105 color-variant" data-img="images/earbuds.jpg" data-color="Midnight Black">
+                                <span class="block w-full h-full rounded-full bg-black shadow-sm border border-gray-200"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <button class="w-full bg-[#FF4C3B] hover:bg-red-600 hover:-translate-y-0.5 text-white font-bold py-5 px-8 rounded-3xl transition-all shadow-[0_8px_20px_rgba(255,76,59,0.3)] flex items-center justify-center gap-3 text-lg">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i> Add to Basket
+                    </button>
+                    
+                    <div class="bg-gray-50 p-5 rounded-3xl border border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-700">
+                            <div class="w-8 h-8 rounded-full bg-white text-[#000000] flex items-center justify-center shadow-sm"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                            Nepal Delivery
+                        </div>
+                        <div class="hidden sm:block w-px h-8 bg-gray-200"></div>
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-700">
+                            <div class="w-8 h-8 rounded-full bg-white text-[#000000] flex items-center justify-center shadow-sm"><i data-lucide="refresh-cw" class="w-4 h-4"></i></div>
+                            7-Day Returns
+                        </div>
+                        <div class="hidden sm:block w-px h-8 bg-gray-200"></div>
+                        <div class="flex items-center gap-2.5 text-sm font-semibold text-gray-700">
+                            <div class="w-8 h-8 rounded-full bg-white text-[#000000] flex items-center justify-center shadow-sm"><i data-lucide="banknote" class="w-4 h-4"></i></div>
+                            Cash on Delivery
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Item Details & Review Dashboard -->
+        <div class="mt-16 pt-12 border-t border-gray-200">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Item Details -->
+                <div class="lg:col-span-5 text-gray-800">
+                    <h2 class="text-3xl font-extrabold text-[#000000] mb-8">Item details</h2>
+                    <div class="prose prose-sm md:prose-base text-gray-800 max-w-none">
+                        <p class="mb-6 leading-relaxed">Welcome to the next generation of audio with our True Wireless Earbuds. Equipped with Bluetooth 5.3 technology, experience seamless, ultra-low latency connectivity perfect for gaming, movies, and pure music enjoyment.</p>
+                        <ul class="list-disc pl-5 space-y-3 mb-8 text-gray-700">
+                            <li><strong>Active Noise Cancelling (ANC):</strong> Block out the world and immerse yourself in your music.</li>
+                            <li><strong>Low Latency Gaming Mode:</strong> Sync audio and video flawlessly for competitive gaming.</li>
+                            <li><strong>Extended Battery Life:</strong> Up to 6 hours of continuous playback, and 24 hours with the charging case.</li>
+                            <li><strong>Ergonomic Comfort:</strong> Lightweight design providing a secure fit for all-day comfort.</li>
+                        </ul>
+                        <p class="text-sm text-gray-600 italic mt-6 bg-gray-50 p-4 rounded-xl">If you have any questions about this item, please feel free to contact us and we will answer your message right away.</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Reviews -->
+                <div class="lg:col-span-7">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900">1,245 Reviews</h2>
+                        <div class="flex text-[#FF4C3B] gap-0.5">
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                            <i data-lucide="star-half" class="w-5 h-5 fill-[#FF4C3B]"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review Feed -->
+                    <div class="space-y-6">
+                        
+                        <!-- Review 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-600 shrink-0">SS</div>
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between w-full mb-1.5">
+                                    <span class="text-[13px] font-semibold text-gray-900 hover:text-[#b21c2e] cursor-pointer">Sujan S.</span>
+                                    <span class="text-xs text-gray-500">12 Apr, 2026</span>
+                                </div>
+                                <div class="flex text-[#FF4C3B] mb-2 gap-0.5">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                </div>
+                                <p class="text-sm text-gray-800 leading-relaxed">
+                                    Absolutely love these earbuds! The ANC is incredible for the price point. Very comfortable to wear all day while I'm working at my desk. Cannot recommend enough!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-px bg-gray-200"></div>
+
+                        <!-- Review 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">KM</div>
+                            <div class="flex flex-col">
+                                <div class="flex items-center justify-between w-full mb-1.5">
+                                    <span class="text-[13px] font-semibold text-gray-900 hover:text-[#b21c2e] cursor-pointer">Kriti M.</span>
+                                    <span class="text-xs text-gray-500">08 Apr, 2026</span>
+                                </div>
+                                <div class="flex text-[#FF4C3B] mb-2 gap-0.5">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-[#FF4C3B] text-[#FF4C3B]"></i>
+                                </div>
+                                <p class="text-sm text-gray-800 leading-relaxed">
+                                    Quick delivery and nicely packaged. The bass mode is exactly what I was looking for. Connects instantly to my phone every time I take them out.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-8">
+                        <button class="w-full py-3.5 border border-gray-900 rounded-full font-bold text-gray-900 hover:bg-gray-100/50 transition-colors">
+                            Show more reviews
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script for interactive Elements -->
+        
+    </main>
+
+    <footer class="w-full bg-[#0a0a0a] text-[#9ca3af] py-6 mt-12 font-sans">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
+            
+            <!-- Top Section (Identity & Newsletter) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-b border-gray-800 pb-8 mb-10">
+                
+                <!-- Left Side: Identity -->
+                <div class="space-y-4">
+                    <div class="text-3xl font-extrabold text-white tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        Nepal's fastest-growing e-commerce destination. Shop smart, shop local delivered across all 77 districts.
+                    </p>
+                </div>
+
+                <!-- Right Side: Newsletter -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center mb-2">
+                        <div class="w-1.5 h-6 bg-[#FF4C3B] rounded-sm mr-3"></div>
+                        <h3 class="text-xs font-bold text-[#FF4C3B] tracking-widest uppercase">NEWSLETTER</h3>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-1 tracking-tight">Get exclusive deals before everyone else</h4>
+                    <p class="text-sm mb-4 text-gray-400">Join 50,000+ Nepali shoppers.</p>
+                    
+                    <form class="flex w-full max-w-md items-stretch">
+                        <input type="email" placeholder="Your email address" class="w-full bg-gray-900 border border-gray-800 rounded-l-lg px-5 py-3 text-sm focus:outline-none focus:border-[#FF4C3B] focus:ring-1 focus:ring-[#FF4C3B] text-white placeholder-gray-500 transition-all duration-300">
+                        <button type="submit" class="bg-[#FF4C3B] text-white px-6 font-bold text-sm rounded-r-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,76,59,0.4)] transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Middle Section (Navigation Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 relative">
+                
+                <!-- Column 1: Shop -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Shop</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: My Account -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">My Account</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="login.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sign In</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Register</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Track My Order</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Wishlist</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Loyalty Points</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Help Center -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Help Center</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">FAQs</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Return Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sell on KNT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Apps -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Contact & Apps</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 shrink-0 mt-0.5"></i>
+                            <span>New Baneshwor, Kathmandu</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="#" class="hover:text-[#FF4C3B] transition-colors duration-300">+977 1 1234567</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="mailto:support@kinamnata.com" class="hover:text-[#FF4C3B] transition-colors duration-300">support@kinamnata.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- App Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <i data-lucide="apple" class="w-6 h-6 text-white group-hover:text-[#FF4C3B] transition-colors"></i>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[10px] text-gray-400 leading-none">Download on the</span>
+                                <span class="text-sm font-bold text-white leading-tight">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-white group-hover:text-[#FF4C3B] transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M4.33 1.95L18.42 10.3l-3.3 2.91-7.85-6.84L4.33 1.95zM3.48 3.5l6.98 6.09L3.48 16.55V3.5zm8.13 7.08l2.9 2.53-2.9 2.53-2.9-2.53 2.9-2.53zm3.72 3.25l3.09-2.7 1.25.75L6.09 21.05l7.24-7.22z"></path></svg>
+                            <div class="flex flex-col text-left ml-2">
+                                <span class="text-[10px] text-gray-400 leading-none">GET IT ON</span>
+                                <span class="text-sm font-bold text-white leading-tight">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Bottom Section (Trust & Payments) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                
+                <!-- Trust Stats & Payments Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8 text-sm">
+                    
+                    <!-- Accepted Payments Bar -->
+                    <div class="flex flex-wrap justify-center items-center gap-3">
+                        <span class="mr-2 text-xs font-semibold uppercase tracking-wider text-gray-500">ACCEPTED PAYMENTS:</span>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#60B52F] shadow-sm flex items-center justify-center"><img src="images/footer/e sewa.png" alt="eSewa" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#5C2D91] shadow-sm flex items-center justify-center"><img src="images/footer/khalti.png" alt="Khalti" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#0055A5] shadow-sm flex items-center justify-center"><img src="images/footer/connect ips.png" alt="ConnectIPS" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-gray-800 px-2.5 py-1.5 rounded-sm border-b-2 border-[#FF4C3B] text-[11px] font-bold text-[#FF4C3B] tracking-tight shadow-sm flex items-center">C.O.D</div>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-white font-semibold">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>50K+ Customers</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="package" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>10K+ Products</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="map" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>77 Districts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="border-t border-gray-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div>
+                        &copy; 2026 Kinam Na Ta Pvt. Ltd. — Registered in Nepal.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+        
+    <!-- Initialize Lucide Icons -->
+    
+
+    <!-- Interactive Mega-Menu Toggle Logic -->
+    
+<script>lucide.createIcons();</script>
+</body>
+</html>
