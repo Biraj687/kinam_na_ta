@@ -1,0 +1,364 @@
+<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Page: Contact Us | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: Industrial-Minimalist, Trust-Focused -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | KINAM NA TA</title>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',   // Strict Brand Red
+                            secondary: '#000000', // Strict Black
+                            bg: '#F9FAFB'         // Ultra-light gray bg
+                        },
+                        slate: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                            950: '#020617',
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Professional Font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+
+        /* Tactical Hover Effects */
+        .premium-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Success Message Animation */
+        @keyframes fade-in-up {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .success-animate {
+            animation: fade-in-up 0.5s ease-out forwards;
+        }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-bg text-brand-secondary">
+    
+    <!-- Main Header Section -->
+    <header class="w-full bg-white border-b border-gray-100 text-sm sticky top-0 z-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 flex items-center justify-between gap-8">
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0">
+                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">
+                    KINAM<br/>NA TA
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="hidden lg:flex flex-grow flex-1 px-4 max-w-2xl">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Search for products or help..." class="w-full bg-slate-50 border border-slate-200 rounded-full px-6 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all">
+                    <i data-lucide="search" class="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex items-center space-x-6">
+                <a href="wishlist.html" class="text-slate-600 hover:text-brand-primary transition">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                </a>
+                <a href="account.html" class="flex items-center gap-2 text-slate-600 hover:text-brand-primary transition font-medium">
+                    <i data-lucide="user" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">My Account</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title & Intro -->
+    <section class="w-full py-16 bg-white border-b border-slate-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Contact Us</h1>
+            <p class="text-slate-500 max-w-2xl mx-auto text-lg">We're here to help. Whether you have a question about our products, orders, or anything else, our team is ready to assist you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Grid -->
+    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Side: Contact Form -->
+            <div class="lg:col-span-7">
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 md:p-10 shadow-sm premium-card">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-2">Send us a message</h2>
+                        <p class="text-slate-400 text-sm">We usually reply within 24 hours.</p>
+                    </div>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="name" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name <span class="text-brand-primary">*</span></label>
+                                <input type="text" id="name" required placeholder="John Doe" class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="email" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Address <span class="text-brand-primary">*</span></label>
+                                <input type="email" id="email" required placeholder="john@example.com" class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 transition-all">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="subject" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Subject <span class="text-brand-primary">*</span></label>
+                                <select id="subject" required class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 transition-all appearance-none cursor-pointer">
+                                    <option value="">Select a subject</option>
+                                    <option value="order">Order Inquiry</option>
+                                    <option value="product">Product Question</option>
+                                    <option value="return">Returns & Refunds</option>
+                                    <option value="business">B2B/Wholesale</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="order-number" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Order Number</label>
+                                <input type="text" id="order-number" placeholder="KNT-123456 (Optional)" class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 transition-all">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Your Message <span class="text-brand-primary">*</span></label>
+                            <textarea id="message" required rows="6" placeholder="How can we help you today?" class="w-full bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-slate-950 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 flex items-center justify-center gap-2 group">
+                            Send Message <i data-lucide="send" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success Message (Hidden) -->
+                    <div id="success-message" class="hidden text-center py-12 success-animate">
+                        <div class="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-100">
+                            <i data-lucide="check" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+                        <p class="text-slate-500 mb-8">Thank you for reaching out. We've received your message and will get back to you within 24 hours.</p>
+                        <button onclick="resetForm()" class="text-brand-primary font-bold hover:underline">Send another message</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Support Info -->
+            <div class="lg:col-span-5 space-y-8">
+                
+                <!-- Direct Contact Details -->
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm premium-card">
+                    <h2 class="text-xl font-bold text-slate-900 mb-8">Direct Contact</h2>
+                    <div class="space-y-6">
+                        <a href="mailto:support@kinamnata.com" class="flex items-center gap-6 group">
+                            <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Email us at</p>
+                                <p class="text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors">support@kinamnata.com</p>
+                            </div>
+                        </a>
+                        <a href="tel:+977014455667" class="flex items-center gap-6 group">
+                            <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Call our hotline</p>
+                                <p class="text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors">+977 01 4455667</p>
+                            </div>
+                        </a>
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Support Hours</p>
+                                <p class="text-lg font-bold text-slate-900">Sun - Fri, 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Quick Links -->
+                <div class="bg-slate-950 text-white rounded-3xl p-8 shadow-xl premium-card overflow-hidden relative">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <h2 class="text-xl font-bold mb-6">Quick Help</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Check our most common help topics for instant answers.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="#" class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group">
+                            <span class="text-sm font-semibold">Shipping Policy</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-white/40 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group">
+                            <span class="text-sm font-semibold">Returns & Refunds</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-white/40 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group">
+                            <span class="text-sm font-semibold">Payment Methods</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-white/40 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group">
+                            <span class="text-sm font-semibold">Order Tracking</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-white/40 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Links & Physical Address -->
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm premium-card">
+                    <h2 class="text-xl font-bold text-slate-900 mb-6">Find us</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Innovation Center, Block B<br/>
+                        Koteshwor-32, Kathmandu<br/>
+                        Bagmati, Nepal
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Support CTA / Live Chat Button -->
+    <section class="w-full py-16 bg-slate-900 text-white">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] flex flex-col items-center text-center">
+            <div class="w-16 h-16 bg-brand-primary rounded-3xl flex items-center justify-center mb-8 shadow-2xl shadow-brand-primary/40">
+                <i data-lucide="message-square" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-3xl font-extrabold mb-4 tracking-tight">Need instant help?</h2>
+            <p class="text-slate-400 mb-8 max-w-md">Start a conversation with our live support agents for real-time assistance.</p>
+            <button class="px-10 py-4 bg-white text-slate-900 font-extrabold rounded-2xl hover:bg-brand-primary hover:text-white transition-all shadow-xl">
+                Start Live Chat
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-900">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none mb-6">KINAM<br/>NA TA</div>
+                    <p class="text-slate-400 text-sm leading-relaxed">The hub for the finest marketplace in Nepal. Quality, trust, and precision in every delivery.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shop Now</a></li>
+                        <li><a href="wishlist.html" class="hover:text-white transition">Wishlist</a></li>
+                        <li><a href="account.html" class="hover:text-white transition">Account</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Policies</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Returns Policy</a></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
+                    <h4 class="font-bold text-white mb-2">Help Center</h4>
+                    <p class="text-xs text-slate-500 mb-6">Browse our comprehensive guides and tutorials.</p>
+                    <a href="#" class="inline-flex items-center text-sm font-bold text-brand-primary hover:underline">
+                        Visit Help Center <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-slate-900">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">&copy; 2026 Kinam Na Ta Pvt. Ltd. — Nepal's Premium Marketplace.</p>
+                <div class="flex gap-4">
+                    <div class="px-2 py-1 bg-slate-900 rounded border border-slate-800"><img src="images/footer/e sewa.png" class="h-4 grayscale hover:grayscale-0 transition" alt="eSewa"></div>
+                    <div class="px-2 py-1 bg-slate-900 rounded border border-slate-800"><img src="images/footer/khalti.png" class="h-4 grayscale hover:grayscale-0 transition" alt="Khalti"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Hide Form
+            document.getElementById('contact-form').classList.add('hidden');
+            
+            // Show Success Message
+            const successMsg = document.getElementById('success-message');
+            successMsg.classList.remove('hidden');
+            
+            // Scroll to top of the card smoothly
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetForm() {
+            // Reset and Show Form
+            const form = document.getElementById('contact-form');
+            form.reset();
+            form.classList.remove('hidden');
+            
+            // Hide Success Message
+            document.getElementById('success-message').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
