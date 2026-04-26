@@ -1,0 +1,677 @@
+<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Page: Account Dashboard | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: Industrial-Minimalist, Software Dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | KINAM NA TA</title>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',   // Strict Brand Red
+                            secondary: '#000000', // Strict Black
+                            bg: '#F9FAFB'         // Ultra-light gray bg
+                        },
+                        slate: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                            950: '#020617',
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Professional Font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar for Minimalist Look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CBD5E1;
+        }
+
+        /* Mobile Scroll-Snap Menu */
+        @media (max-width: 768px) {
+            .mobile-nav-scroll {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-nav-item {
+                scroll-snap-align: start;
+                flex: 0 0 auto;
+            }
+        }
+
+        /* Masonry Grid Simulation */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 10px;
+            gap: 1.5rem;
+        }
+
+        /* Tactical Hover Effects */
+        .premium-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-bg text-brand-secondary selection:bg-brand-primary selection:text-white">
+    
+    <!-- Main Header Section (Partial from index.html) -->
+    <header class="w-full bg-white border-b border-gray-100 text-sm sticky top-0 z-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 flex items-center justify-between gap-8">
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0">
+                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">
+                    KINAM<br/>NA TA
+                </div>
+            </a>
+
+            <!-- Search Bar (Simplified for Account Page) -->
+            <div class="hidden lg:flex flex-grow flex-1 px-4 max-w-2xl">
+                <form class="flex w-full items-stretch relative">
+                    <input type="text" placeholder="Search orders, tracking, or support..." class="w-full bg-slate-50 border border-slate-200 rounded-full px-6 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20 transition-all">
+                    <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-brand-primary p-2">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex items-center space-x-6 flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-2 text-slate-500 hover:text-brand-primary transition font-medium">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">Home</span>
+                </a>
+                <a href="cart.html" class="relative group">
+                    <i data-lucide="shopping-cart" class="w-6 h-6 text-slate-700 group-hover:text-brand-primary transition"></i>
+                    <span class="absolute -top-1.5 -right-2 bg-brand-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+                </a>
+                <div class="flex items-center space-x-3 pl-4 border-l border-slate-200">
+                    <div class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px] font-bold">BS</div>
+                    <span class="hidden lg:inline text-sm font-semibold">Biraj Shah</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Layout Wrapper -->
+    <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            
+            <!-- 1. Sticky Sidebar Navigation -->
+            <aside class="w-full md:w-64 lg:w-72 shrink-0">
+                <div class="md:sticky md:top-24 space-y-2">
+                    
+                    <!-- Mobile Scroll-Snap Menu (Visible on mobile) -->
+                    <nav class="md:hidden mobile-nav-scroll flex gap-2 pb-4 no-scrollbar">
+                        <a href="#overview" class="mobile-nav-item px-4 py-2 bg-slate-900 text-white rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-2">
+                            <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Overview
+                        </a>
+                        <a href="#orders" class="mobile-nav-item px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-2">
+                            <i data-lucide="package" class="w-4 h-4"></i> Orders
+                        </a>
+                        <a href="#tracking" class="mobile-nav-item px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i> Tracking
+                        </a>
+                        <a href="#wishlist" class="mobile-nav-item px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-2">
+                            <i data-lucide="heart" class="w-4 h-4"></i> Wishlist
+                        </a>
+                        <a href="#addresses" class="mobile-nav-item px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-2">
+                            <i data-lucide="home" class="w-4 h-4"></i> Addresses
+                        </a>
+                    </nav>
+
+                    <!-- Desktop Sidebar (Hidden on mobile) -->
+                    <div class="hidden md:block bg-white border border-slate-100 rounded-3xl p-4 shadow-sm">
+                        <div class="space-y-1">
+                            <a href="#overview" class="flex items-center gap-3 px-4 py-3 bg-slate-950 text-white rounded-2xl transition-all font-medium">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Overview
+                            </a>
+                            <a href="#orders" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="package" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Order History
+                            </a>
+                            <a href="#tracking" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="map-pin" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Tracking
+                            </a>
+                            <a href="#wishlist" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="heart" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Wishlist
+                            </a>
+                            <a href="#addresses" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="map" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Addresses
+                            </a>
+                            <a href="#payments" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="credit-card" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Payments
+                            </a>
+                            <a href="#settings" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="settings" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Profile Settings
+                            </a>
+                            <a href="#returns" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all font-medium group">
+                                <i data-lucide="rotate-ccw" class="w-5 h-5 group-hover:text-brand-primary transition"></i> Returns & Refunds
+                            </a>
+                        </div>
+
+                        <div class="mt-8 pt-4 border-t border-slate-100">
+                            <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-2xl transition-all font-semibold group">
+                                <i data-lucide="log-out" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Help Cluster (Desktop Footer-aligned in sidebar) -->
+                    <div class="hidden md:block p-6 bg-slate-50 rounded-3xl mt-6 border border-slate-100">
+                        <h4 class="font-bold text-slate-900 mb-2">Need help?</h4>
+                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">Our support team is available 24/7 for any inquiries.</p>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-primary transition">
+                                <i data-lucide="help-circle" class="w-4 h-4"></i> FAQs
+                            </a>
+                            <a href="#" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-primary transition">
+                                <i data-lucide="message-square" class="w-4 h-4"></i> Live Chat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 2. The 'Control Center' (Main Content) -->
+            <main class="flex-grow space-y-8 min-w-0">
+                
+                <!-- Header Card -->
+                <section id="overview" class="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 premium-card">
+                    <div class="flex items-center gap-6">
+                        <div class="relative">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-slate-100 flex items-center justify-center border-4 border-white shadow-inner overflow-hidden">
+                                <img src="https://ui-avatars.com/api/?name=Biraj+Shah&background=0F172A&color=fff&size=128" alt="User Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <button class="absolute -bottom-1 -right-1 bg-white p-1.5 rounded-xl shadow-md border border-slate-100 text-slate-500 hover:text-brand-primary transition">
+                                <i data-lucide="camera" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Biraj Shah</h1>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="px-2.5 py-0.5 bg-slate-900 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Premium Member</span>
+                                <span class="text-slate-400 text-xs font-medium">Joined June 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-auto">
+                        <button class="w-full lg:w-auto px-6 py-3 bg-brand-primary text-white font-bold rounded-2xl hover:bg-red-600 transition-all shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2 group">
+                            <span>Upgrade to Business Profile</span>
+                            <i data-lucide="crown" class="w-4 h-4 transition-transform group-hover:rotate-12"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Active Tracking Section -->
+                <section id="tracking" class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="navigation" class="w-5 h-5 text-brand-primary"></i> Active Tracking
+                        </h2>
+                        <a href="#orders" class="text-sm font-semibold text-brand-primary hover:underline">View all orders</a>
+                    </div>
+                    
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm premium-card relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-8 opacity-5">
+                            <i data-lucide="truck" class="w-24 h-24 text-slate-900"></i>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Order #KNT-992841</p>
+                                <h3 class="text-xl font-bold text-slate-900">Expected: Monday, 28 April</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="text-right hidden md:block">
+                                    <p class="text-xs font-medium text-slate-500">Tracking Number</p>
+                                    <p class="text-sm font-bold text-slate-900">KTN-NEP-882103</p>
+                                </div>
+                                <button class="p-3 bg-slate-50 text-slate-600 rounded-2xl hover:bg-slate-100 transition">
+                                    <i data-lucide="copy" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="relative py-8">
+                            <div class="absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 rounded-full"></div>
+                            <div class="absolute top-1/2 left-0 w-2/3 h-1 bg-brand-primary -translate-y-1/2 rounded-full relative">
+                                <div class="absolute -right-1 top-1/2 -translate-y-1/2 w-4 h-4 bg-brand-primary rounded-full ring-4 ring-red-100"></div>
+                            </div>
+                            
+                            <div class="relative flex justify-between">
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-lg shadow-brand-primary/30">
+                                        <i data-lucide="check" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900">Ordered</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-lg shadow-brand-primary/30">
+                                        <i data-lucide="check" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900">Shipped</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-white border-2 border-brand-primary text-brand-primary flex items-center justify-center">
+                                        <i data-lucide="truck" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900">In Transit</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-3 opacity-30">
+                                    <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-200 text-slate-400 flex items-center justify-center">
+                                        <i data-lucide="package-check" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-400">Delivered</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-6 border-t border-slate-50 flex items-center justify-between">
+                            <p class="text-sm text-slate-500">Last Update: <span class="font-semibold text-slate-900">Kathmandu Sorting Center</span></p>
+                            <a href="#" class="text-sm font-bold text-brand-primary flex items-center gap-1 hover:gap-2 transition-all">
+                                Contact Support for this Order <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Order History Grid -->
+                <section id="orders" class="space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="history" class="w-5 h-5 text-brand-primary"></i> Order History
+                        </h2>
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <input type="text" placeholder="Search orders..." class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10 w-full md:w-64">
+                                <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                            </div>
+                            <button class="p-2.5 bg-white border border-slate-200 rounded-2xl text-slate-600 hover:bg-slate-50 transition">
+                                <i data-lucide="filter" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-slate-50/50 border-b border-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Order / Date</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Products</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Total</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Status</th>
+                                        <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-50">
+                                    <!-- Row 1 -->
+                                    <tr class="hover:bg-slate-50/50 transition-colors">
+                                        <td class="px-6 py-6">
+                                            <p class="font-bold text-slate-900">#KNT-881290</p>
+                                            <p class="text-xs text-slate-400">12 April, 2024</p>
+                                        </td>
+                                        <td class="px-6 py-6">
+                                            <div class="flex -space-x-2">
+                                                <div class="w-10 h-10 rounded-xl border-2 border-white bg-slate-100 overflow-hidden shadow-sm">
+                                                    <img src="images/mobile.png" alt="Product" class="w-full h-full object-contain p-1">
+                                                </div>
+                                                <div class="w-10 h-10 rounded-xl border-2 border-white bg-slate-100 overflow-hidden shadow-sm">
+                                                    <img src="images/earbuds.jpg" alt="Product" class="w-full h-full object-contain p-1">
+                                                </div>
+                                                <div class="w-10 h-10 rounded-xl border-2 border-white bg-slate-50 flex items-center justify-center text-[10px] font-bold text-slate-400 shadow-sm">
+                                                    +2
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-6 font-bold text-slate-900">NPR 32,450</td>
+                                        <td class="px-6 py-6">
+                                            <span class="px-3 py-1 bg-green-100 text-green-600 text-[10px] font-bold rounded-full uppercase tracking-wider">Delivered</span>
+                                        </td>
+                                        <td class="px-6 py-6 text-right">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button class="px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition">Reorder</button>
+                                                <a href="#" class="p-2 text-slate-400 hover:text-brand-primary transition"><i data-lucide="eye" class="w-5 h-5"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 2 -->
+                                    <tr class="hover:bg-slate-50/50 transition-colors">
+                                        <td class="px-6 py-6">
+                                            <p class="font-bold text-slate-900">#KNT-871022</p>
+                                            <p class="text-xs text-slate-400">28 March, 2024</p>
+                                        </td>
+                                        <td class="px-6 py-6">
+                                            <div class="w-10 h-10 rounded-xl bg-slate-100 overflow-hidden shadow-sm">
+                                                <img src="images/keyboard.jpg" alt="Product" class="w-full h-full object-contain p-1">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-6 font-bold text-slate-900">NPR 4,200</td>
+                                        <td class="px-6 py-6">
+                                            <span class="px-3 py-1 bg-red-100 text-red-600 text-[10px] font-bold rounded-full uppercase tracking-wider">Returned</span>
+                                        </td>
+                                        <td class="px-6 py-6 text-right">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button class="px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition">Reorder</button>
+                                                <a href="#" class="p-2 text-slate-400 hover:text-brand-primary transition"><i data-lucide="eye" class="w-5 h-5"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Management Clusters -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Addresses -->
+                    <section id="addresses" class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-bold text-slate-900">Addresses</h2>
+                            <button class="text-sm font-bold text-brand-primary hover:underline">+ Add New</button>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <!-- Address Card -->
+                            <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm premium-card group relative">
+                                <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-2 bg-white shadow-md rounded-xl text-slate-400 hover:text-brand-primary border border-slate-50"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+                                    <button class="p-2 bg-white shadow-md rounded-xl text-slate-400 hover:text-red-600 border border-slate-50"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0">
+                                        <i data-lucide="home" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h3 class="font-bold text-slate-900">Home Address</h3>
+                                            <span class="px-2 py-0.5 bg-brand-primary/10 text-brand-primary text-[9px] font-bold rounded-full uppercase tracking-tighter">Default</span>
+                                        </div>
+                                        <p class="text-sm text-slate-500 leading-relaxed">
+                                            Koteshwor-32, Kathmandu<br/>
+                                            Near Mahadevsthan Temple<br/>
+                                            Bagmati, Nepal
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Address Card -->
+                            <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm premium-card group relative">
+                                <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-2 bg-white shadow-md rounded-xl text-slate-400 hover:text-brand-primary border border-slate-50"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+                                    <button class="p-2 bg-white shadow-md rounded-xl text-slate-400 hover:text-red-600 border border-slate-50"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0">
+                                        <i data-lucide="briefcase" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 mb-1">Office</h3>
+                                        <p class="text-sm text-slate-500 leading-relaxed">
+                                            Patan Dhoka, Lalitpur<br/>
+                                            Innovation Hub, Block B<br/>
+                                            Nepal
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Payments -->
+                    <section id="payments" class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-bold text-slate-900">Payment Methods</h2>
+                            <button class="text-sm font-bold text-brand-primary hover:underline">+ Add New</button>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <!-- Payment Card -->
+                            <div class="bg-slate-950 rounded-3xl p-6 shadow-xl premium-card group relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-2 bg-white/10 backdrop-blur-md rounded-xl text-white/60 hover:text-white border border-white/10"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                </div>
+                                <div class="flex flex-col h-full justify-between gap-8">
+                                    <div class="flex items-center justify-between">
+                                        <i data-lucide="credit-card" class="w-8 h-8 text-white"></i>
+                                        <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Visa</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-lg font-bold text-white tracking-[0.2em]">•••• •••• •••• 4210</p>
+                                        <div class="flex items-center justify-between mt-4">
+                                            <p class="text-[10px] text-white/50 uppercase tracking-widest font-bold">Biraj Shah</p>
+                                            <p class="text-[10px] text-white/50 uppercase tracking-widest font-bold">12/28</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Payment Card -->
+                            <div class="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm premium-card group relative">
+                                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-2 bg-white shadow-md rounded-xl text-slate-400 hover:text-red-600 border border-slate-50"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-[#60B52F]/10 flex items-center justify-center shrink-0">
+                                        <img src="images/footer/e sewa.png" alt="eSewa" class="w-8 object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900">eSewa Wallet</h3>
+                                        <p class="text-xs text-slate-500">Linked: 9841******01</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Profile & Security (In-place edit) -->
+                <section id="settings" class="space-y-4">
+                    <h2 class="text-lg font-bold text-slate-900">Profile & Security</h2>
+                    <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm space-y-6">
+                        
+                        <!-- Profile Info Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name</label>
+                                <input type="text" value="Biraj Shah" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Address</label>
+                                <input type="email" value="birajshah@example.com" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Phone Number</label>
+                                <input type="tel" value="+977 9841000000" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/10">
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-slate-50">
+                            <button onclick="toggleSection('password-section')" class="flex items-center justify-between w-full p-4 hover:bg-slate-50 rounded-2xl transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
+                                        <i data-lucide="lock" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold text-slate-900">Change Password</h4>
+                                        <p class="text-xs text-slate-500">Last changed 3 months ago</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="chevron-down" id="password-chevron" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                            </button>
+                            
+                            <div id="password-section" class="hidden overflow-hidden transition-all duration-300 px-4 pt-6 space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="text-xs font-bold text-slate-400">Current Password</label>
+                                        <input type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label class="text-xs font-bold text-slate-400">New Password</label>
+                                        <input type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm">
+                                    </div>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button class="px-6 py-2.5 bg-slate-900 text-white font-bold rounded-xl text-sm">Update Password</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-6 border-t border-slate-50">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+                                    <i data-lucide="shield-alert" class="w-5 h-5 text-red-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Two-Factor Authentication</h4>
+                                    <p class="text-xs text-slate-500">Add an extra layer of security</p>
+                                </div>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Floating Live Chat FAB -->
+    <button class="fixed bottom-8 right-8 w-14 h-14 bg-brand-primary text-white rounded-2xl shadow-2xl shadow-brand-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-[10px] font-bold px-3 py-2 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Start Live Chat</span>
+    </button>
+
+    <!-- Footer (Simplified from index.html) -->
+    <footer class="bg-slate-950 text-white mt-16 pt-16 pb-8 border-t border-slate-900">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none mb-6">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">High-end marketplace for the finest goods in Nepal. Industrial precision, minimalist elegance.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center hover:bg-brand-primary transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center hover:bg-brand-primary transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center hover:bg-brand-primary transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Shop</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">B2B Wholesale</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Top Brands</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Company</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl">
+                    <h4 class="font-bold text-white mb-4">Subscribe to Newsletter</h4>
+                    <p class="text-xs text-slate-400 mb-6">Get 10% off your first order when you join our inner circle.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary/50">
+                        <button class="w-full bg-brand-primary text-white font-bold py-2.5 rounded-xl text-sm hover:bg-red-600 transition">Join Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-slate-500">© 2026 Kinam Na Ta Pvt. Ltd. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <div class="px-2 py-1 bg-slate-900 rounded border border-slate-800"><img src="images/footer/e sewa.png" class="h-4 grayscale hover:grayscale-0 transition" alt="eSewa"></div>
+                    <div class="px-2 py-1 bg-slate-900 rounded border border-slate-800"><img src="images/footer/khalti.png" class="h-4 grayscale hover:grayscale-0 transition" alt="Khalti"></div>
+                    <div class="px-2 py-1 bg-slate-900 rounded border border-slate-800"><img src="images/footer/connect ips.png" class="h-4 grayscale hover:grayscale-0 transition" alt="IPS"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Toggle Section Visibility (for Password etc)
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const chevron = document.getElementById(id.replace('section', 'chevron'));
+            
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                setTimeout(() => {
+                    section.classList.add('opacity-100');
+                }, 10);
+                if (chevron) chevron.classList.add('rotate-180');
+            } else {
+                section.classList.remove('opacity-100');
+                setTimeout(() => {
+                    section.classList.add('hidden');
+                }, 300);
+                if (chevron) chevron.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
