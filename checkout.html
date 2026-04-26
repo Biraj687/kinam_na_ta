@@ -3,342 +3,672 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINAM NA TA | Checkout</title>
+    <title>Checkout | KINAM NA TA</title>
+    
+    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            primary: '#FF4C3B',
-                            secondary: '#000000',
-                            bg: '#F9FAFB'
+                            primary: '#FF4C3B',   // Strict Brand Red
+                            secondary: '#000000', // Strict Black
+                            bg: '#F9FAFB'         // Ultra-light gray bg
                         }
                     }
                 }
             }
         }
     </script>
+
+    <!-- Professional Font (Inter) -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
-        .payment-option input:checked + label {
+        
+        .step-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sticky-summary {
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Custom Radio Button Visuals */
+        .payment-radio:checked + .payment-card {
             border-color: #FF4C3B;
-            background-color: #FFF2EE;
+            background-color: #FFF5F4;
         }
-        .toggle-input:checked + .toggle-slider {
-            transform: translateX(1.75rem);
+        .payment-radio:checked + .payment-card .radio-indicator {
             background-color: #FF4C3B;
+            border-color: #FF4C3B;
         }
-        .toggle-slider {
-            transition: transform 0.25s ease, background-color 0.25s ease;
+        .payment-radio:checked + .payment-card .radio-indicator-dot {
+            transform: scale(1);
         }
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+
+        /* Form Placeholders */
+        input::placeholder, textarea::placeholder {
+            color: #D1D5DB !important;
+            font-weight: 400;
         }
     </style>
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-brand-bg text-brand-secondary">
-    <header class="w-full bg-white border-b border-gray-200 text-sm sticky top-0 z-40 shadow-sm">
-        <div class="max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <a href="index.html" class="inline-flex items-center gap-2 transition hover:opacity-80">
-                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">KINAM<br/>NA TA</div>
+<body class="bg-brand-bg text-brand-secondary min-h-screen flex flex-col">
+    
+    <!-- Simplified Checkout Header -->
+    <header class="w-full bg-white border-b border-gray-100 py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0 group">
+                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none group-hover:opacity-90 transition">
+                    KINAM<br/>NA TA
+                </div>
             </a>
-            <div class="flex flex-wrap items-center gap-4 justify-between">
-                <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Home</a>
-                <a href="cart.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Cart</a>
-                <a href="product.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Shop</a>
-                <a href="login.html" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition">Sign In</a>
+            <div class="hidden md:flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                <i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i>
+                Secure 256-bit SSL Checkout
             </div>
+            <a href="cart.html" class="text-sm font-bold text-gray-900 hover:text-brand-primary transition flex items-center gap-1.5">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Cart
+            </a>
         </div>
     </header>
 
-    <main class="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-[7rem] py-10">
-        <section class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between mb-10">
-            <div>
-                <p class="text-sm uppercase tracking-wide text-gray-500 font-semibold">Secure checkout</p>
-                <h1 class="mt-3 text-3xl md:text-4xl font-extrabold text-[#121212]">Complete your order</h1>
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+        
+        <!-- Progress Stepper (3 Steps) -->
+        <div class="mb-12 max-w-2xl mx-auto">
+            <div class="relative flex items-center justify-between">
+                <!-- Line background -->
+                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
+                <!-- Active Line -->
+                <div id="step-progress-line" class="absolute top-1/2 left-0 h-0.5 bg-brand-primary -translate-y-1/2 z-0 transition-all duration-500" style="width: 0%;"></div>
+                
+                <!-- Steps -->
+                <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="goToStep(1)">
+                    <div id="step-1-circle" class="w-10 h-10 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-brand-primary/20 transition-all border-4 border-white">1</div>
+                    <span id="step-1-label" class="mt-2 text-xs font-bold text-brand-primary">Shipping</span>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center group cursor-pointer" onclick="goToStep(2)">
+                    <div id="step-2-circle" class="w-10 h-10 rounded-full bg-white text-gray-400 border-2 border-gray-200 flex items-center justify-center font-bold text-sm transition-all">2</div>
+                    <span id="step-2-label" class="mt-2 text-xs font-bold text-gray-400">Review & Pay</span>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center">
+                    <div id="step-3-circle" class="w-10 h-10 rounded-full bg-white text-gray-400 border-2 border-gray-200 flex items-center justify-center font-bold text-sm transition-all">3</div>
+                    <span id="step-3-label" class="mt-2 text-xs font-bold text-gray-400">Done</span>
+                </div>
             </div>
-            <div class="grid gap-3 sm:grid-cols-3">
-                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
-                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Fast delivery</p>
-                    <p class="mt-2 text-sm text-gray-700">Local shipping within 48 hrs</p>
-                </div>
-                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
-                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Wholesale ready</p>
-                    <p class="mt-2 text-sm text-gray-700">Bulk pricing unlocked</p>
-                </div>
-                <div class="rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-sm">
-                    <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Trusted pay</p>
-                    <p class="mt-2 text-sm text-gray-700">Multiple smart payment flows</p>
-                </div>
-            </div>
-        </section>
+        </div>
 
-        <div class="grid gap-8 xl:grid-cols-[1.3fr_0.75fr]">
-            <section class="space-y-6">
-                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Wholesale mode</p>
-                            <h2 class="mt-2 text-xl font-bold text-[#121212]">Order with bulk savings</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="main-grid">
+            
+            <!-- Left Side: Checkout Content -->
+            <div class="lg:col-span-8">
+                
+                <!-- Step 1: Shipping Details -->
+                <div id="step-content-1" class="fade-in">
+                    <div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-gray-100">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-1.5 h-6 bg-brand-primary rounded-full"></div>
+                            <h2 class="text-2xl font-bold text-gray-900">Delivery Information</h2>
                         </div>
-                        <div class="flex items-center gap-4 rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm">
-                            <div class="flex flex-col text-sm">
-                                <span class="font-semibold text-[#121212]">Wholesale unlocked</span>
-                                <span class="text-gray-500">Buy 6+ units to save 15%</span>
-                            </div>
-                            <label class="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-300 p-1 transition">
-                                <input id="wholesaleToggle" type="checkbox" class="toggle-input peer sr-only">
-                                <span class="toggle-slider absolute left-1 top-1 h-6 w-6 rounded-full bg-white shadow transition-transform"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <p class="mt-5 text-sm leading-6 text-gray-600">Wholesale pricing is automatically applied when eligible items are in your cart. Add more from the same brand to see live bulk discounts and invoice support.</p>
-                </div>
-
-                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between gap-4 mb-6">
-                        <div>
-                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Shipping details</p>
-                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Delivery address</h2>
-                        </div>
-                        <span class="rounded-full bg-[#FF4C3B]/10 px-3 py-1 text-xs font-semibold text-[#FF4C3B]">Fastest</span>
-                    </div>
-
-                    <form class="grid gap-4">
-                        <div class="grid gap-4 sm:grid-cols-2">
-                            <label class="block text-sm font-medium text-gray-700">
-                                Full name
-                                <input type="text" placeholder="Sita Sharma" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                            </label>
-                            <label class="block text-sm font-medium text-gray-700">
-                                Mobile number
-                                <input type="tel" placeholder="9841 234 567" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                            </label>
-                        </div>
-                        <label class="block text-sm font-medium text-gray-700">
-                            Email address
-                            <input type="email" placeholder="sita@example.com" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                        </label>
-                        <label class="block text-sm font-medium text-gray-700">
-                            Delivery address
-                            <input type="text" placeholder="House no. 12, New Road, Lazimpat" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                        </label>
-                        <div class="grid gap-4 sm:grid-cols-2">
-                            <label class="block text-sm font-medium text-gray-700">
-                                City
-                                <input type="text" placeholder="Kathmandu" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                            </label>
-                            <label class="block text-sm font-medium text-gray-700">
-                                Postal code
-                                <input type="text" placeholder="44600" class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10" />
-                            </label>
-                        </div>
-                        <label class="block text-sm font-medium text-gray-700">
-                            Delivery note
-                            <textarea rows="3" placeholder="Leave the package at the reception..." class="mt-2 w-full rounded-3xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#121212] focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/10"></textarea>
-                        </label>
-                    </form>
-                </div>
-
-                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between mb-5">
-                        <div>
-                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Payment method</p>
-                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Choose your way to pay</h2>
-                        </div>
-                        <span class="text-xs text-gray-500">3+ options</span>
-                    </div>
-
-                    <div class="grid gap-4">
-                        <input type="radio" id="pay-card" name="payment" class="sr-only" checked />
-                        <label for="pay-card" class="payment-option flex cursor-pointer flex-col gap-4 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
-                            <div class="flex items-center justify-between gap-4">
+                        
+                        <form id="shipping-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <p class="font-semibold text-[#121212]">Card & Wallet</p>
-                                    <p class="text-sm text-gray-500">Visa, Mastercard, eSewa, Khalti</p>
+                                    <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Full Name</label>
+                                    <input type="text" name="fullname" placeholder="Enter your full name" required
+                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm">
                                 </div>
-                                <div class="inline-flex items-center rounded-full bg-[#FF4C3B]/10 px-3 py-1 text-xs font-semibold text-[#FF4C3B]">Fastest</div>
-                            </div>
-                            <div class="flex flex-wrap items-center gap-2">
-                                <span class="inline-flex items-center gap-2 rounded-2xl bg-gray-100 px-3 py-1 text-xs text-gray-600">
-                                    <i data-lucide="credit-card" class="w-4 h-4"></i>
-                                    Card
-                                </span>
-                                <img src="images/footer/e%20sewa.png" alt="eSewa" class="h-6 w-auto rounded-full bg-white p-1 border border-gray-200" />
-                                <img src="images/footer/khalti.png" alt="Khalti" class="h-6 w-auto rounded-full bg-white p-1 border border-gray-200" />
-                            </div>
-                        </label>
-
-                        <input type="radio" id="pay-upi" name="payment" class="sr-only" />
-                        <label for="pay-upi" class="payment-option flex cursor-pointer flex-col gap-3 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
-                            <div class="flex items-center justify-between gap-4">
                                 <div>
-                                    <p class="font-semibold text-[#121212]">UPI Flash Pay</p>
-                                    <p class="text-sm text-gray-500">Scan QR or use your favorite app.</p>
+                                    <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Mobile Number</label>
+                                    <input type="tel" name="mobile" placeholder="98XXXXXXXX" required
+                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm">
                                 </div>
-                                <div class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Instant</div>
                             </div>
+                            
+                            <div>
+                                <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Email Address</label>
+                                <input type="email" name="email" placeholder="example@domain.com" required
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm">
+                                <p class="mt-2 text-[11px] text-gray-400">Order updates will be sent to this email.</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Delivery Address</label>
+                                <input type="text" name="address" placeholder="House no, Street name, Area" required
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">City</label>
+                                    <select name="city" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm appearance-none">
+                                        <option value="Kathmandu">Kathmandu</option>
+                                        <option value="Lalitpur">Lalitpur</option>
+                                        <option value="Bhaktapur">Bhaktapur</option>
+                                        <option value="Pokhara">Pokhara</option>
+                                        <option value="Biratnagar">Biratnagar</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Postal Code (Optional)</label>
+                                    <input type="text" name="postal" placeholder="e.g. 44600"
+                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[12px] font-bold text-gray-500 mb-2 uppercase tracking-wider">Special Instructions</label>
+                                <textarea name="note" rows="2" placeholder="Any landmark or delivery note..."
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition text-sm resize-none"></textarea>
+                            </div>
+
+                            <div class="pt-6">
+                                <button type="button" onclick="nextStep()" class="w-full md:w-auto px-12 py-4 bg-brand-primary text-white font-bold rounded-xl hover:opacity-90 transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2">
+                                    Continue to Review <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 2: Review & Pay -->
+                <div id="step-content-2" class="hidden fade-in space-y-8">
+                    <!-- Order Items -->
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-8">
                             <div class="flex items-center gap-3">
-                                <img src="images/footer/e%20sewa.png" alt="eSewa" class="h-7 w-auto rounded-xl border border-gray-200 bg-white p-1" />
-                                <img src="images/footer/khalti.png" alt="Khalti" class="h-7 w-auto rounded-xl border border-gray-200 bg-white p-1" />
+                                <div class="w-1.5 h-6 bg-brand-primary rounded-full"></div>
+                                <h2 class="text-xl font-bold text-gray-900">Order Review</h2>
                             </div>
-                        </label>
-
-                        <input type="radio" id="pay-cod" name="payment" class="sr-only" />
-                        <label for="pay-cod" class="payment-option flex cursor-pointer flex-col gap-3 rounded-3xl border border-gray-200 bg-white p-4 transition hover:border-brand-primary">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="font-semibold text-[#121212]">Cash on Delivery</p>
-                                    <p class="text-sm text-gray-500">Pay at your doorstep with a small fee.</p>
-                                </div>
-                                <div class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Reliable</div>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-500">
-                                <i data-lucide="truck" class="w-4 h-4"></i>
-                                <span>Payment collected by delivery partner.</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="space-y-6">
-                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between gap-4 mb-6">
-                        <div>
-                            <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Order summary</p>
-                            <h2 class="mt-2 text-2xl font-bold text-[#121212]">Review your items</h2>
-                        </div>
-                        <span class="rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-semibold text-brand-primary">Wholesale</span>
-                    </div>
-
-                    <div class="grid gap-4 mb-6">
-                        <div class="rounded-3xl bg-gray-50 p-4">
-                            <div class="relative overflow-hidden rounded-3xl bg-white shadow-sm">
-                                <img src="images/earbuds.jpg" alt="True Wireless Earbuds" class="h-52 w-full object-cover" />
-                                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                                    <p class="text-sm font-semibold text-white">True Wireless Earbuds</p>
-                                    <p class="text-xs text-gray-200">50 MP call clarity, ANC, wireless charging</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 grid gap-3 border border-gray-200 rounded-3xl bg-white p-4">
-                                <div class="flex items-center justify-between text-sm text-gray-600">
-                                    <span>Unit price</span>
-                                    <span>NPR 5,950</span>
-                                </div>
-                                <div class="flex items-center justify-between text-sm text-gray-600">
-                                    <span>Quantity</span>
-                                    <span>2</span>
-                                </div>
-                                <div class="flex items-center justify-between text-sm text-gray-600">
-                                    <span>Wholesale discount</span>
-                                    <span id="itemDiscount" class="text-[#0F9D58] font-semibold">NPR 0</span>
-                                </div>
-                            </div>
+                            <span class="px-3 py-1 bg-gray-100 text-[11px] font-bold text-gray-500 rounded-full uppercase tracking-tighter"><span id="cart-item-count">2</span> Items</span>
                         </div>
 
-                        <div class="rounded-3xl border border-gray-200 bg-white p-5">
-                            <div class="flex items-center justify-between text-sm text-gray-500"><span>Subtotal</span><span>NPR 11,900</span></div>
-                            <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Shipping</span><span>NPR 350</span></div>
-                            <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Tax & duties</span><span>NPR 180</span></div>
-                            <div class="mt-4 border-t border-gray-200 pt-4 flex items-center justify-between text-xl font-bold text-[#121212]">
-                                <span>Total</span>
-                                <span id="orderTotal">NPR 12,430</span>
+                        <div id="cart-items-container" class="space-y-6">
+                            <!-- Item 1 -->
+                            <div class="flex gap-4 md:gap-6 py-4 border-b border-gray-100 last:border-0">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gray-50 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 p-2">
+                                    <img src="images/earbuds.jpg" alt="Product" class="w-full h-full object-contain">
+                                </div>
+                                <div class="flex-grow flex flex-col">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="text-sm font-bold text-gray-900 line-clamp-2">True Wireless Earbuds Bluetooth 5.3 TWS ANC</h3>
+                                        <button onclick="removeItem(0)" class="text-gray-300 hover:text-red-500 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+                                    </div>
+                                    <div class="mt-auto flex items-center justify-between">
+                                        <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden h-8">
+                                            <button onclick="changeQty(0, -1)" class="px-2.5 py-1 hover:bg-gray-100 transition border-r border-gray-200 text-gray-500"><i data-lucide="minus" class="w-3.5 h-3.5"></i></button>
+                                            <span id="qty-0" class="px-4 py-1 text-xs font-bold text-gray-900 bg-white">1</span>
+                                            <button onclick="changeQty(0, 1)" class="px-2.5 py-1 hover:bg-gray-100 transition border-l border-gray-200 text-gray-500"><i data-lucide="plus" class="w-3.5 h-3.5"></i></button>
+                                        </div>
+                                        <p class="text-sm font-extrabold text-gray-900">NPR 2,150</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="rounded-3xl border border-gray-200 bg-white p-5">
-                        <div class="flex items-center justify-between text-sm text-gray-500"><span>Subtotal</span><span id="subtotalAmount">NPR 11,900</span></div>
-                        <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Shipping</span><span id="shippingAmount">NPR 350</span></div>
-                        <div class="mt-3 flex items-center justify-between text-sm text-gray-500"><span>Tax & duties</span><span id="taxAmount">NPR 180</span></div>
-                        <div class="mt-4 flex items-center justify-between text-sm text-[#0F9D58]"><span>Wholesale discount</span><span id="wholesaleDiscount">NPR 0</span></div>
+                    <!-- Payment Methods -->
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-1.5 h-6 bg-brand-primary rounded-full"></div>
+                            <h2 class="text-xl font-bold text-gray-900">Payment Method</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- eSewa -->
+                            <div class="relative">
+                                <input type="radio" name="payment-method" id="pay-esewa" value="esewa" class="payment-radio peer hidden" checked onchange="selectPayment('esewa')">
+                                <label for="pay-esewa" class="payment-card flex items-center gap-4 p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-gray-200 transition bg-white">
+                                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0 transition-all">
+                                        <div class="radio-indicator-dot w-2.5 h-2.5 rounded-full bg-white transform scale-0 transition-transform"></div>
+                                    </div>
+                                    <img src="images/footer/e%20sewa.png" alt="eSewa" class="h-6 w-auto">
+                                    <span class="text-sm font-bold text-gray-900">eSewa</span>
+                                </label>
+                            </div>
+
+                            <!-- Khalti -->
+                            <div class="relative">
+                                <input type="radio" name="payment-method" id="pay-khalti" value="khalti" class="payment-radio peer hidden" onchange="selectPayment('khalti')">
+                                <label for="pay-khalti" class="payment-card flex items-center gap-4 p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-gray-200 transition bg-white">
+                                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0 transition-all">
+                                        <div class="radio-indicator-dot w-2.5 h-2.5 rounded-full bg-white transform scale-0 transition-transform"></div>
+                                    </div>
+                                    <img src="images/footer/khalti.png" alt="Khalti" class="h-6 w-auto">
+                                    <span class="text-sm font-bold text-gray-900">Khalti</span>
+                                </label>
+                            </div>
+
+                            <!-- Card -->
+                            <div class="relative">
+                                <input type="radio" name="payment-method" id="pay-card" value="card" class="payment-radio peer hidden" onchange="selectPayment('card')">
+                                <label for="pay-card" class="payment-card flex items-center gap-4 p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-gray-200 transition bg-white">
+                                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0 transition-all">
+                                        <div class="radio-indicator-dot w-2.5 h-2.5 rounded-full bg-white transform scale-0 transition-transform"></div>
+                                    </div>
+                                    <i data-lucide="credit-card" class="w-5 h-5 text-gray-600"></i>
+                                    <span class="text-sm font-bold text-gray-900">Card</span>
+                                </label>
+                            </div>
+
+                            <!-- COD -->
+                            <div class="relative">
+                                <input type="radio" name="payment-method" id="pay-cod" value="cod" class="payment-radio peer hidden" onchange="selectPayment('cod')">
+                                <label for="pay-cod" class="payment-card flex items-center gap-4 p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-gray-200 transition bg-white">
+                                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center flex-shrink-0 transition-all">
+                                        <div class="radio-indicator-dot w-2.5 h-2.5 rounded-full bg-white transform scale-0 transition-transform"></div>
+                                    </div>
+                                    <i data-lucide="banknote" class="w-5 h-5 text-gray-600"></i>
+                                    <span class="text-sm font-bold text-gray-900">C.O.D</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Info Section -->
+                        <div id="payment-disclaimer" class="mt-8 p-4 bg-gray-50 rounded-2xl text-[12px] text-gray-500 leading-relaxed border border-gray-100">
+                            <!-- JS will inject content here -->
+                        </div>
                     </div>
 
-                    <div class="rounded-3xl border border-gray-200 bg-white p-5">
-                        <div class="flex items-start gap-3">
-                            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FF4C3B]/10 text-brand-primary"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
+                    <!-- Final Confirm Box -->
+                    <div class="bg-brand-primary/5 rounded-2xl p-8 border border-brand-primary/10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <div>
-                                <p class="text-sm font-semibold text-[#121212]">Need invoice support?</p>
-                                <p class="mt-1 text-sm text-gray-500">Send order details to request VAT/PAN invoice directly after checkout.</p>
+                                <h4 class="text-[11px] font-black text-gray-900 uppercase tracking-widest mb-4">Shipping To</h4>
+                                <p id="confirm-name" class="font-extrabold text-gray-900 text-lg">Sita Sharma</p>
+                                <p id="confirm-address" class="text-sm text-gray-600 mt-1">New Road, Kathmandu</p>
+                                <p id="confirm-mobile" class="text-sm text-gray-600">+977 9841XXXXXX</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-[32px] border border-gray-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-center justify-between mb-4">
-                        <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold">Instant checkout</p>
-                        <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">Safe pay</span>
-                    </div>
-                    <div class="grid gap-4">
-                        <button class="inline-flex items-center justify-between rounded-3xl border border-gray-200 bg-[#000000] px-4 py-4 text-left text-white shadow-sm transition hover:bg-[#1a1a1a]">
                             <div>
-                                <p class="font-semibold">KINAM Slice</p>
-                                <p class="mt-1 text-sm text-gray-200">Pay in 3 equal monthly installments.</p>
+                                <h4 class="text-[11px] font-black text-gray-900 uppercase tracking-widest mb-4">Payment Selection</h4>
+                                <div class="flex items-center gap-2">
+                                    <img id="confirm-pay-img" src="images/footer/e%20sewa.png" class="h-5 w-auto">
+                                    <p id="confirm-pay-text" class="text-sm font-bold text-gray-900">eSewa Wallet</p>
+                                </div>
                             </div>
-                            <span class="text-xs uppercase tracking-wide text-gray-200">NEW</span>
-                        </button>
-                        <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
-                            <p class="text-sm font-semibold text-[#121212]">Payment Preview</p>
-                            <div class="mt-3 grid gap-3 text-sm text-gray-600">
-                                <div class="flex justify-between"><span>Estimated delivery</span><span>Apr 26 – Apr 28</span></div>
-                                <div class="flex justify-between"><span>Rewards earned</span><span>₨ 124</span></div>
-                                <div class="flex justify-between"><span>Delivery partner</span><span>FastDrop Express</span></div>
-                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 pt-6 border-t border-brand-primary/10">
+                            <button type="button" onclick="prevStep()" class="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition">
+                                Back
+                            </button>
+                            <button type="button" onclick="submitOrder()" class="flex-grow px-10 py-4 bg-brand-primary text-white text-lg font-bold rounded-xl hover:opacity-90 transition shadow-xl shadow-brand-primary/20 flex items-center justify-center gap-2">
+                                Place Order Now <i data-lucide="check-circle" class="w-6 h-6"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <button type="button" id="confirmButton" class="w-full rounded-3xl bg-brand-primary px-6 py-4 text-base font-bold text-white shadow-[0_16px_40px_rgba(255,76,59,0.18)] transition hover:bg-[#e43e2f]">Pay NPR 12,430 now</button>
-            </aside>
+                <!-- Success State -->
+                <div id="success-panel" class="hidden fade-in text-center py-12">
+                    <div class="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-gray-100 max-w-2xl mx-auto">
+                        <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-10">
+                            <i data-lucide="check" class="w-10 h-10"></i>
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Order Confirmed!</h2>
+                        <p class="text-gray-500 mb-10 leading-relaxed">
+                            Order <span class="font-bold text-gray-900">#KNT-9283741</span> is being prepared. 
+                            Confirmation sent to <span class="font-bold text-gray-900" id="success-email">sita@example.com</span>.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="index.html" class="px-10 py-4 bg-brand-primary text-white font-bold rounded-xl hover:opacity-90 transition shadow-lg shadow-brand-primary/20">
+                                Continue Shopping
+                            </a>
+                            <button class="px-10 py-4 bg-white border-2 border-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition">
+                                Track My Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side: Order Summary Panel -->
+            <div class="lg:col-span-4 sticky-summary" id="summary-sidebar">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100">
+                        <h3 class="text-lg font-bold text-gray-900">Order Summary</h3>
+                    </div>
+                    
+                    <!-- Items List in Summary -->
+                    <div id="summary-items-list" class="p-6 space-y-5 border-b border-gray-50 max-h-[350px] overflow-y-auto">
+                        <!-- Item 1 -->
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-16 h-16 bg-gray-50 rounded-2xl border border-gray-100 p-2 flex-shrink-0 group-hover:border-brand-primary/30 transition shadow-sm">
+                                <img src="images/earbuds.jpg" class="w-full h-full object-contain">
+                            </div>
+                            <div class="flex-grow min-w-0">
+                                <p class="text-[13px] font-bold text-gray-900 line-clamp-2 leading-tight mb-1">True Wireless Earbuds ANC</p>
+                                <p class="text-[11px] text-gray-400">Qty: 1 | Size: Standard</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[13px] font-bold text-gray-900 tracking-tight">NPR 2,150</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-16 h-16 bg-gray-50 rounded-2xl border border-gray-100 p-2 flex-shrink-0 group-hover:border-brand-primary/30 transition shadow-sm">
+                                <img src="images/keyboard.jpg" class="w-full h-full object-contain">
+                            </div>
+                            <div class="flex-grow min-w-0">
+                                <p class="text-[13px] font-bold text-gray-900 line-clamp-2 leading-tight mb-1">Mechanical Gaming Keyboard</p>
+                                <p class="text-[11px] text-gray-400">Qty: 1 | Color: Black</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[13px] font-bold text-gray-900 tracking-tight">NPR 3,490</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-500">Subtotal</span>
+                            <span id="summary-subtotal" class="font-bold text-gray-900 tracking-tight">NPR 5,640</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-500">Delivery</span>
+                            <span id="summary-shipping" class="font-bold text-green-500 uppercase text-[10px]">Free</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-500">Tax</span>
+                            <span id="summary-tax" class="font-bold text-gray-900 tracking-tight">NPR 120</span>
+                        </div>
+                        
+                        <!-- Promo Code (Step 2 Only) -->
+                        <div id="promo-container" class="hidden pt-4 border-t border-dashed border-gray-200">
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="Promo Code" class="flex-grow px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary">
+                                <button class="px-4 py-2 bg-gray-900 text-white text-xs font-bold rounded-lg hover:bg-black transition">Apply</button>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-gray-100 flex justify-between items-end">
+                            <span class="text-sm font-bold text-gray-900">Total</span>
+                            <span id="summary-total" class="text-2xl font-black text-brand-primary tracking-tighter leading-none">NPR 5,510</span>
+                        </div>
+                    </div>
+
+                    <div id="savings-box" class="hidden p-4 bg-brand-primary text-center">
+                        <p class="text-[10px] text-white font-bold uppercase tracking-widest">You saved NPR 3,490 today!</p>
+                    </div>
+                </div>
+
+                <!-- Trust Badges (Compact) -->
+               
+            </div>
+
         </div>
     </main>
 
+    <!-- Professional Branded Footer -->
+    <footer class="w-full bg-[#111111] text-white pt-12 pb-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider">Shop</h4>
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-brand-primary">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-brand-primary">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider">Account</h4>
+                    </div>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary">Track Order</a></li>
+                        <li><a href="#" class="hover:text-brand-primary">My Wishlist</a></li>
+                        <li><a href="#" class="hover:text-brand-primary">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
+                        <h4 class="font-bold text-sm uppercase tracking-wider">Newsletter</h4>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Your Email" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-xs w-full focus:border-brand-primary outline-none">
+                        <button class="bg-brand-primary px-4 py-2 text-xs font-bold rounded-lg hover:opacity-90">Join</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <p class="text-[10px] text-gray-500">&copy; 2026 Kinam Na Ta Pvt. Ltd. Kathmandu, Nepal.</p>
+                <div class="flex items-center gap-4 grayscale opacity-40">
+                    <img src="images/footer/e%20sewa.png" class="h-4">
+                    <img src="images/footer/khalti.png" class="h-4">
+                    <img src="images/footer/connect ips.png" class="h-4">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div id="mobile-cta" class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 z-50 flex items-center justify-between">
+        <div>
+            <p class="text-[10px] text-gray-400 font-bold uppercase">Total</p>
+            <p class="text-lg font-black text-brand-primary" id="mobile-total">NPR 5,510</p>
+        </div>
+        <button onclick="handleMobileCTA()" id="mobile-cta-btn" class="px-8 py-3 bg-brand-primary text-white font-bold rounded-xl text-sm">
+            Next Step
+        </button>
+    </div>
+
     <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+        
+        // Mock State
+        const orderData = {
+            shipping: { fullname: '', mobile: '', email: '', address: '', city: 'Kathmandu' },
+            items: [
+                { id: 0, price: 2150, qty: 1 },
+                { id: 1, price: 3490, qty: 1 }
+            ],
+            payment: 'esewa',
+            shippingFee: 0,
+            tax: 120,
+            discount: 250
+        };
+
+        function updateUI() {
+            // Update Stepper
+            for (let i = 1; i <= totalSteps; i++) {
+                const circle = document.getElementById(`step-${i}-circle`);
+                const label = document.getElementById(`step-${i}-label`);
+                if (!circle || !label) continue;
+                
+                if (i < currentStep) {
+                    circle.classList.add('bg-brand-primary', 'text-white', 'border-brand-primary');
+                    circle.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i>';
+                    label.classList.add('text-brand-primary');
+                } else if (i === currentStep) {
+                    circle.classList.add('bg-brand-primary', 'text-white', 'border-white', 'shadow-lg');
+                    circle.innerHTML = i;
+                    label.classList.add('text-brand-primary');
+                } else {
+                    circle.classList.add('bg-white', 'text-gray-400', 'border-gray-200');
+                    circle.classList.remove('bg-brand-primary', 'text-white', 'border-white', 'shadow-lg');
+                    circle.innerHTML = i;
+                    label.classList.remove('text-brand-primary');
+                }
+            }
+            
+            document.getElementById('step-progress-line').style.width = `${((currentStep - 1) / (totalSteps - 1)) * 100}%`;
+
+            // Step Content
+            document.getElementById('step-content-1').classList.toggle('hidden', currentStep !== 1);
+            document.getElementById('step-content-2').classList.toggle('hidden', currentStep !== 2);
+            document.getElementById('success-panel').classList.toggle('hidden', currentStep !== 3);
+
+            // Conditional Sidebar Elements
+            document.getElementById('promo-container').classList.toggle('hidden', currentStep !== 2);
+            document.getElementById('savings-box').classList.toggle('hidden', currentStep !== 2);
+
+            // Mobile CTA Button
+            const mobileBtn = document.getElementById('mobile-cta-btn');
+            if (currentStep === 1) mobileBtn.innerText = 'Next: Review';
+            if (currentStep === 2) mobileBtn.innerText = 'Place Order';
+            
+            lucide.createIcons();
+            calculateTotals();
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                const form = document.getElementById('shipping-form');
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                const formData = new FormData(form);
+                orderData.shipping.fullname = formData.get('fullname');
+                orderData.shipping.address = formData.get('address');
+                orderData.shipping.mobile = formData.get('mobile');
+                orderData.shipping.email = formData.get('email');
+                
+                document.getElementById('confirm-name').innerText = orderData.shipping.fullname;
+                document.getElementById('confirm-address').innerText = orderData.shipping.address;
+                document.getElementById('confirm-mobile').innerText = orderData.shipping.mobile;
+            }
+            
+            currentStep++;
+            updateUI();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        }
+
+        function goToStep(step) {
+            if (step < currentStep) {
+                currentStep = step;
+                updateUI();
+            }
+        }
+
+        function changeQty(index, delta) {
+            const item = orderData.items[index];
+            if (item) {
+                item.qty = Math.max(1, item.qty + delta);
+                document.getElementById(`qty-${index}`).innerText = item.qty;
+                calculateTotals();
+            }
+        }
+
+        function removeItem(index) {
+            if (orderData.items.length > 1) {
+                orderData.items.splice(index, 1);
+                const container = document.getElementById('cart-items-container');
+                container.children[index].remove();
+                // Refresh indexes
+                Array.from(container.children).forEach((child, i) => {
+                    const removeBtn = child.querySelector('button[onclick^="removeItem"]');
+                    if (removeBtn) removeBtn.setAttribute('onclick', `removeItem(${i})`);
+                    const minusBtn = child.querySelector('button[onclick^="changeQty"]');
+                    if (minusBtn) minusBtn.setAttribute('onclick', `changeQty(${i}, -1)`);
+                    const plusBtn = child.querySelectorAll('button[onclick^="changeQty"]')[1];
+                    if (plusBtn) plusBtn.setAttribute('onclick', `changeQty(${i}, 1)`);
+                    const qtySpan = child.querySelector('span[id^="qty-"]');
+                    if (qtySpan) qtySpan.id = `qty-${i}`;
+                });
+                document.getElementById('cart-item-count').innerText = orderData.items.length;
+                calculateTotals();
+            } else {
+                alert("At least one item required.");
+            }
+        }
+
+        function calculateTotals() {
+            let subtotal = 0;
+            orderData.items.forEach(item => subtotal += item.price * item.qty);
+            const total = subtotal + orderData.shippingFee + orderData.tax - orderData.discount;
+            
+            document.getElementById('summary-subtotal').innerText = `NPR ${subtotal.toLocaleString()}`;
+            document.getElementById('summary-total').innerText = `NPR ${total.toLocaleString()}`;
+            document.getElementById('mobile-total').innerText = `NPR ${total.toLocaleString()}`;
+        }
+
+        function selectPayment(method) {
+            orderData.payment = method;
+            const img = document.getElementById('confirm-pay-img');
+            const text = document.getElementById('confirm-pay-text');
+            const disclaimer = document.getElementById('payment-disclaimer');
+
+            if (method === 'esewa') {
+                img.src = 'images/footer/e%20sewa.png';
+                text.innerText = 'eSewa Wallet';
+                disclaimer.innerHTML = 'You will be redirected to the secure <strong>eSewa</strong> portal to authorize this payment.';
+            } else if (method === 'khalti') {
+                img.src = 'images/footer/khalti.png';
+                text.innerText = 'Khalti Wallet';
+                disclaimer.innerHTML = 'You will be redirected to the secure <strong>Khalti</strong> portal to authorize this payment.';
+            } else if (method === 'card') {
+                img.src = ''; 
+                text.innerText = 'Credit/Debit Card';
+                disclaimer.innerHTML = 'All card transactions are processed via <strong>PCI-DSS</strong> compliant secure gateways.';
+            } else if (method === 'cod') {
+                img.src = '';
+                text.innerText = 'Cash on Delivery';
+                disclaimer.innerHTML = 'Please keep the exact amount ready. Delivery partner will collect the payment at your doorstep.';
+            }
+        }
+
+        function submitOrder() {
+            const btn = document.querySelector('button[onclick="submitOrder()"]');
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Processing...';
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                // In a real app, you'd send data to the server here
+                window.location.href = 'order-confirmation.html';
+            }, 2000);
+        }
+
+        function handleMobileCTA() {
+            if (currentStep === 1) nextStep();
+            else if (currentStep === 2) submitOrder();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            const wholesaleToggle = document.getElementById('wholesaleToggle');
-            const wholesaleLabel = document.querySelector('[for="wholesaleToggle"]');
-            const wholesaleDiscount = document.getElementById('wholesaleDiscount');
-            const orderTotal = document.getElementById('orderTotal');
-            const confirmButton = document.getElementById('confirmButton');
-
-            const baseSubtotal = 11900;
-            const shipping = 350;
-            const tax = 180;
-            const discount = 1750;
-
-            const itemDiscount = document.getElementById('itemDiscount');
-
-            const updateTotals = () => {
-                const wholesale = wholesaleToggle.checked;
-                const total = baseSubtotal + shipping + tax - (wholesale ? discount : 0);
-                wholesaleDiscount.textContent = wholesale ? `NPR ${discount.toLocaleString('en-US')}` : 'NPR 0';
-                itemDiscount.textContent = wholesale ? `- NPR ${discount.toLocaleString('en-US')}` : 'NPR 0';
-                orderTotal.textContent = `NPR ${total.toLocaleString('en-US')}`;
-                confirmButton.textContent = `Pay NPR ${total.toLocaleString('en-US')} now`;
-            };
-
-            wholesaleToggle.addEventListener('change', () => {
-                wholesaleLabel.innerHTML = wholesaleToggle.checked
-                    ? '<span class="text-sm font-semibold text-[#121212]">Wholesale mode active</span><p class="text-xs text-gray-500">Bulk pricing applied to your order.</p>'
-                    : '<span class="text-sm font-semibold text-[#121212]">Wholesale unlocked</span><p class="text-xs text-gray-500">Buy 6+ units to save 15%.</p>';
-                updateTotals();
-            });
-
-            updateTotals();
+            updateUI();
+            selectPayment('esewa');
         });
     </script>
-    <script>lucide.createIcons();</script>
 </body>
 </html>
