@@ -1,0 +1,182 @@
+<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Page: Returns & Refunds Policy | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: Industrial-Minimalist, Customer-Friendly -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Refunds | KINAM NA TA</title>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4C3B',
+                            secondary: '#000000',
+                            bg: '#F9FAFB'
+                        },
+                        slate: {
+                            50: '#F8FAFC', 100: '#F1F5F9', 200: '#E2E8F0', 300: '#CBD5E1', 400: '#94A3B8',
+                            500: '#64748B', 600: '#475569', 700: '#334155', 800: '#1E293B', 900: '#0F172A', 950: '#020617',
+                        }
+                    },
+                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Professional Font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        .policy-content p { line-height: 1.8; margin-bottom: 1.5rem; color: #475569; }
+        .policy-content h2 { font-size: 1.5rem; font-weight: 800; color: #0F172A; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.025em; }
+        .policy-content ul { list-style-type: none; margin-bottom: 20px; }
+        .policy-content li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: #475569; }
+        .policy-content li::before { content: ""; position: absolute; left: 0; top: 0.6rem; width: 0.5rem; height: 2px; background: #FF4C3B; }
+        .step-card { background: white; border: 1px solid #F1F5F9; padding: 2rem; border-radius: 1.5rem; transition: all 0.3s ease; }
+        .step-card:hover { transform: translateY(-4px); border-color: #FF4C3B20; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-bg text-brand-secondary">
+    
+    <!-- Header -->
+    <header class="w-full bg-white border-b border-gray-100 text-sm sticky top-0 z-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0">
+                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">KINAM<br/>NA TA</div>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="contact.html" class="text-slate-600 hover:text-brand-primary transition font-medium">Return an Item</a>
+                <a href="account.html" class="flex items-center gap-2 text-slate-600 hover:text-brand-primary transition font-medium">
+                    <i data-lucide="user" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">Account</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-16">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Returns & Refunds</h1>
+                <p class="text-slate-500 text-lg">Hassle-free returns and fair refund policies for our community.</p>
+                <div class="mt-8 p-4 bg-white border border-slate-100 rounded-2xl inline-flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-primary"></i>
+                    [Return Window]-Day Easy Returns
+                </div>
+            </div>
+
+            <!-- How it works steps -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="step-card group">
+                    <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6 group-hover:bg-brand-primary transition-colors">1</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Request Return</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Initiate your return via the account dashboard or contact us within <strong>[Return Window] days</strong>.</p>
+                </div>
+                <div class="step-card group">
+                    <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6 group-hover:bg-brand-primary transition-colors">2</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Pack & Ship</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Securely pack the item in its original packaging with tags. We'll arrange a pickup or provide a label.</p>
+                </div>
+                <div class="step-card group">
+                    <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6 group-hover:bg-brand-primary transition-colors">3</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Get Refunded</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Once inspected, your refund will be processed to the original payment method within <strong>[Refund Timeline]</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Policy Content -->
+            <div class="policy-content bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm">
+                
+                <section id="eligibility">
+                    <h2>1. Return Eligibility</h2>
+                    <p>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.</p>
+                    <p>Items sent back to us without first requesting a return will not be accepted.</p>
+                </section>
+
+                <section id="non-returnable">
+                    <h2>2. Non-Returnable Items</h2>
+                    <p>Certain types of items cannot be returned, like perishable goods (such as food, flowers, or plants), custom products (such as special orders or personalized items), and personal care goods (such as beauty products).</p>
+                    <ul>
+                        <li>Final sale items and gift cards are not returnable.</li>
+                        <li>Digital products or software downloads.</li>
+                        <li>Intimate apparel (for hygiene reasons).</li>
+                    </ul>
+                </section>
+
+                <section id="exchanges">
+                    <h2>3. Exchanges</h2>
+                    <p>The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, make a separate purchase for the new item.</p>
+                </section>
+
+                <section id="refunds">
+                    <h2>4. Refunds</h2>
+                    <p>We will notify you once we’ve received and inspected your return, and let you know if the refund was approved or not. If approved, you’ll be automatically refunded on your original payment method within <strong>[Refund Timeline]</strong>.</p>
+                    <p>Please remember it can take some time for your bank or credit card company to process and post the refund too.</p>
+                </section>
+
+                <section id="damaged">
+                    <h2>5. Damaged or Wrong Items</h2>
+                    <p>Please inspect your order upon reception and contact us immediately if the item is defective, damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.</p>
+                </section>
+
+                <section id="contact" class="mt-12 pt-12 border-t border-slate-50">
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 text-center">
+                        <h4 class="font-bold text-slate-900 mb-4 text-xl">Need more help?</h4>
+                        <p class="text-sm text-slate-500 mb-8 max-w-sm mx-auto">Our returns team is ready to assist you with any questions or special requests.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="contact.html" class="px-8 py-3 bg-brand-primary text-white font-bold rounded-xl text-sm hover:bg-red-600 transition">Start Return Process</a>
+                            <a href="mailto:[Support Email]" class="px-8 py-3 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl text-sm hover:bg-slate-50 transition">Email Support</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-900">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-slate-900 pb-16">
+                <div>
+                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none mb-6">KINAM<br/>NA TA</div>
+                    <p class="text-slate-400 text-sm leading-relaxed">Nepal's marketplace of choice. Quality and service above all.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Legal</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="shipping-policy.html" class="hover:text-white transition">Shipping Policy</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-white transition text-white">Returns Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Support</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Returns FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center">&copy; 2026 Kinam Na Ta Pvt. Ltd.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
