@@ -182,10 +182,7 @@
             <div class="w-full border-t border-gray-100 shadow-[0_4px_10px_-4px_rgba(0,0,0,0.05)] relative">
                 <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-8 text-[14px]">
                     
-                    <!-- All Categories Button -->
-                    <a href="#" id="category-btn" class="flex items-center bg-gray-100 rounded-full px-4 py-2 text-brand-secondary font-bold hover:bg-gray-200 transition flex-shrink-0 cursor-pointer relative z-30">
-                        <i data-lucide="menu" class="w-5 h-5 mr-2"></i> All Categories
-                    </a>
+
                     <!-- Navigation Links -->
                     <div class="flex items-center gap-8 flex-1 overflow-x-auto whitespace-nowrap">
                         <a href="#" class="text-brand-primary font-bold hover:text-red-600 transition">SuperDeals</a>
@@ -198,161 +195,7 @@
 
                 </nav>
                 
-                <!-- Category Dropdown Mega Menu -->
-                <div id="category-dropdown" class="absolute left-0 top-full w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-6 bg-white shadow-2xl rounded-b-2xl z-50 opacity-0 invisible transition-all duration-300 transform -translate-y-4" style="margin-top: -1px;">
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-                        <!-- Category 1 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="shirt" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Women's Fashion</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Dresses, Tops, Accessories</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 2 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="user" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Men's Fashion</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Shirts, Jeans, Footwear</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 3 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="smartphone" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Phones & Telecom</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Smartphones, Accessories</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 4 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="laptop" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Computer & Office</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Laptops, Desktops, Supplies</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 5 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="headphones" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Consumer Electronics</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Audio, TV, Cameras</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 6 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="watch" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Jewelry & Watches</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Rings, Necklaces, Watches</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 7 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="home" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Home, Pet & Appliances</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Furniture, Kitchen, Pets</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 8 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Bags & Shoes</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Handbags, Sneakers, Boots</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 9 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="gamepad-2" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Toys, Kids & Babies</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Toys, Baby Gear, Clothing</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 10 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="tent" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Outdoor Fun & Sports</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Camping, Fitness, Sports</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 11 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="heart" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Beauty, Health & Hair</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Cosmetics, Supplements</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Category 12 -->
-                        <div class="group">
-                            <a href="#" class="flex items-center p-3 rounded-lg hover:bg-red-50 transition">
-                                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition">
-                                    <i data-lucide="car" class="w-5 h-5 text-brand-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Autos & Motorcycles</h4>
-                                    <p class="text-xs text-gray-500 mt-1">Parts, Accessories, Tools</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-100 text-center">
-                        <a href="#" class="inline-flex items-center text-brand-primary font-bold hover:text-red-600 transition">
-                            <span>View All Categories</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                        </a>
-                    </div>
-                </div>
+
             </div>
             
         </header>
@@ -588,85 +431,7 @@
             </section>
 
         
-            <!-- Trending categories this week -->
-            <section class="mb-12">
-                <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
-                <!-- Section Header -->
-                <div class="flex items-center justify-between mb-8">
-                    <!-- Left side with thick red bar -->
-                    <div class="flex items-center">
-                        <div class="w-2 h-8 bg-[#FF4C3B] rounded-sm mr-4"></div>
-                        <h2 class="text-2xl font-bold text-black tracking-tight">Trending categories this week</h2>
-                    </div>
-                    
-                    <!-- Right side Action Button -->
-                    <a href="#" class="px-5 py-2 text-sm font-semibold text-black bg-transparent border border-black rounded-lg hover:bg-gray-50 transition-colors hidden sm:block">
-                        View all categories
-                    </a>
-                </div>
 
-                <!-- Category Grid (No Slider) -->
-                <div class="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6 pb-6">
-
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/womens'fashion.jpg" alt="Women's Fashion" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Women's<br>Fashion</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/men's.jpg" alt="Men's Fashion" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Men's<br>Fashion</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/mobile.png" alt="Phones & Telecom" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Phones<br>&<br>Telecom</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/office.jpg" alt="Computer & Office" class="w-full h-full object-cover" >
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Computer<br>&<br>Office</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/electronics.jpg" alt="Electronics" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Electronics</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/jwelleries.jpg" alt="Jewelry & Watches" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Jewelry<br>&<br>Watches</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/applience.jpg" alt="Home & Appliances" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Home<br>&<br>Appliances</span>
-                    </a>
-                    <!-- Category Item -->
-                    <a href="#" class="group flex flex-col items-center flex-shrink-0">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] flex items-center justify-center p-0 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] mb-3">
-                            <img src="images/electronics.jpg" alt="Bags & Shoes" class="w-full h-full object-cover">
-                        </div>
-                        <span class="text-xs sm:text-sm font-bold text-black text-center leading-tight transition-colors group-hover:text-[#FF4C3B]">Bags<br>&<br>Shoes</span>
-                    </a>
-                </div>
-            </div>
-            </section>
 
             <!-- Handpicked Selection & Trust Bar -->
             <section class="mb-12">
@@ -1373,7 +1138,7 @@
                         <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
                         <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
                         <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
-                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+
                         <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
                         <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
                     </ul>
@@ -1512,50 +1277,7 @@
     
 <script>lucide.createIcons();</script>
 
-    <!-- Category Dropdown Interaction script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const catBtn = document.getElementById('category-btn');
-            const catDropdown = document.getElementById('category-dropdown');
 
-            if (catBtn && catDropdown) {
-                let hideTimeout = null;
-                let isDropdownVisible = false;
-
-                const showDropdown = () => {
-                    clearTimeout(hideTimeout);
-                    if (!isDropdownVisible) {
-                        catDropdown.classList.remove('opacity-0', 'invisible', '-translate-y-4');
-                        catDropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
-                        isDropdownVisible = true;
-                    }
-                };
-
-                const hideDropdown = () => {
-                    hideTimeout = setTimeout(() => {
-                        catDropdown.classList.add('opacity-0', 'invisible', '-translate-y-4');
-                        catDropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
-                        isDropdownVisible = false;
-                    }, 200); // Slightly longer delay to prevent flickering
-                };
-
-                // Show on hover
-                catBtn.addEventListener('mouseenter', showDropdown);
-                catDropdown.addEventListener('mouseenter', showDropdown);
-                
-                // Hide on mouse leave
-                catBtn.addEventListener('mouseleave', hideDropdown);
-                catDropdown.addEventListener('mouseleave', hideDropdown);
-
-                // Also hide when clicking outside (optional)
-                document.addEventListener('click', (e) => {
-                    if (!catBtn.contains(e.target) && !catDropdown.contains(e.target)) {
-                        hideDropdown();
-                    }
-                });
-            }
-        });
-    </script>
 
 </body>
 </html>
