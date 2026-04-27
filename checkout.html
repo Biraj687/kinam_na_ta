@@ -297,7 +297,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <div>
                                 <h4 class="text-[11px] font-black text-gray-900 uppercase tracking-widest mb-4">Shipping To</h4>
-                                <p id="confirm-name" class="font-extrabold text-gray-900 text-lg">Sita Sharma</p>
+                                <p id="confirm-name" class="font-extrabold text-gray-900 text-lg">Biraj Pyakurel</p>
                                 <p id="confirm-address" class="text-sm text-gray-600 mt-1">New Road, Kathmandu</p>
                                 <p id="confirm-mobile" class="text-sm text-gray-600">+977 9841XXXXXX</p>
                             </div>
@@ -424,51 +424,183 @@
     </main>
 
     <!-- Professional Branded Footer -->
-    <footer class="w-full bg-[#111111] text-white pt-12 pb-6 mt-16">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
-                        <h4 class="font-bold text-sm uppercase tracking-wider">Shop</h4>
-                    </div>
-                    <ul class="text-xs text-gray-400 space-y-2">
-                        <li><a href="#" class="hover:text-brand-primary">SuperDeals</a></li>
-                        <li><a href="#" class="hover:text-brand-primary">New Arrivals</a></li>
-                        <li><a href="#" class="hover:text-brand-primary">Best Sellers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
-                        <h4 class="font-bold text-sm uppercase tracking-wider">Account</h4>
-                    </div>
-                    <ul class="text-xs text-gray-400 space-y-2">
-                        <li><a href="#" class="hover:text-brand-primary">Track Order</a></li>
-                        <li><a href="#" class="hover:text-brand-primary">My Wishlist</a></li>
-                        <li><a href="#" class="hover:text-brand-primary">Returns</a></li>
-                    </ul>
-                </div>
-                <div class="col-span-2">
-                    <div class="flex items-center mb-4">
-                        <div class="w-1 h-4 bg-brand-primary mr-2"></div>
-                        <h4 class="font-bold text-sm uppercase tracking-wider">Newsletter</h4>
-                    </div>
-                    <div class="flex gap-2">
-                        <input type="text" placeholder="Your Email" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-xs w-full focus:border-brand-primary outline-none">
-                        <button class="bg-brand-primary px-4 py-2 text-xs font-bold rounded-lg hover:opacity-90">Join</button>
-                    </div>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="w-full bg-[#0a0a0a] text-[#9ca3af] py-6 mt-12 font-sans">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
             
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                <p class="text-[10px] text-gray-500">&copy; 2026 Kinam Na Ta Pvt. Ltd. Kathmandu, Nepal.</p>
-                <div class="flex items-center gap-4 grayscale opacity-40">
-                    <img src="images/footer/e%20sewa.png" class="h-4">
-                    <img src="images/footer/khalti.png" class="h-4">
-                    <img src="images/footer/connect ips.png" class="h-4">
+            <!-- Top Section (Identity & Newsletter) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-b border-gray-800 pb-8 mb-10">
+                
+                <!-- Left Side: Identity -->
+                <div class="space-y-4">
+                    <div class="text-3xl font-extrabold text-white tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        Nepal's fastest-growing e-commerce destination. Shop smart, shop local delivered across all 77 districts.
+                    </p>
+                </div>
+
+                <!-- Right Side: Newsletter -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center mb-2">
+                        <div class="w-1.5 h-6 bg-[#FF4C3B] rounded-sm mr-3"></div>
+                        <h3 class="text-xs font-bold text-[#FF4C3B] tracking-widest uppercase">NEWSLETTER</h3>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-1 tracking-tight">Get exclusive deals before everyone else</h4>
+                    <p class="text-sm mb-4 text-gray-400">Join 50,000+ Nepali shoppers.</p>
+                    
+                    <form class="flex w-full max-w-md items-stretch">
+                        <input type="email" placeholder="Your email address" class="w-full bg-gray-900 border border-gray-800 rounded-l-lg px-5 py-3 text-sm focus:outline-none focus:border-[#FF4C3B] focus:ring-1 focus:ring-[#FF4C3B] text-white placeholder-gray-500 transition-all duration-300">
+                        <button type="submit" class="bg-[#FF4C3B] text-white px-6 font-bold text-sm rounded-r-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,76,59,0.4)] transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
+
+            <!-- Middle Section (Navigation Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 relative">
+                
+                <!-- Column 1: Shop -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Shop</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: My Account -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">My Account</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="login.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sign In</a></li>
+                        <li><a href="signup.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Register</a></li>
+                        <li><a href="account.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">My Profile</a></li>
+                        <li><a href="cart.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shopping Cart</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Help Center -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Help Center</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">FAQs</a></li>
+                        <li><a href="shipping-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shipping Policy</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Return Policy</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sell on KNT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Apps -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Contact & Apps</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 shrink-0 mt-0.5"></i>
+                            <span>New Baneshwor, Kathmandu</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="#" class="hover:text-[#FF4C3B] transition-colors duration-300">+977 1 1234567</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="mailto:support@kinamnata.com" class="hover:text-[#FF4C3B] transition-colors duration-300">support@kinamnata.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- App Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <i data-lucide="apple" class="w-6 h-6 text-white group-hover:text-[#FF4C3B] transition-colors"></i>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[10px] text-gray-400 leading-none">Download on the</span>
+                                <span class="text-sm font-bold text-white leading-tight">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-white group-hover:text-[#FF4C3B] transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M4.33 1.95L18.42 10.3l-3.3 2.91-7.85-6.84L4.33 1.95zM3.48 3.5l6.98 6.09L3.48 16.55V3.5zm8.13 7.08l2.9 2.53-2.9 2.53-2.9-2.53 2.9-2.53zm3.72 3.25l3.09-2.7 1.25.75L6.09 21.05l7.24-7.22z"></path></svg>
+                            <div class="flex flex-col text-left ml-2">
+                                <span class="text-[10px] text-gray-400 leading-none">GET IT ON</span>
+                                <span class="text-sm font-bold text-white leading-tight">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Bottom Section (Trust & Payments) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                
+                <!-- Trust Stats & Payments Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8 text-sm">
+                    
+                    <!-- Accepted Payments Bar -->
+                    <div class="flex flex-wrap justify-center items-center gap-3">
+                        <span class="mr-2 text-xs font-semibold uppercase tracking-wider text-gray-500">ACCEPTED PAYMENTS:</span>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#60B52F] shadow-sm flex items-center justify-center"><img src="images/footer/e sewa.png" alt="eSewa" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#5C2D91] shadow-sm flex items-center justify-center"><img src="images/footer/khalti.png" alt="Khalti" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#0055A5] shadow-sm flex items-center justify-center"><img src="images/footer/connect ips.png" alt="ConnectIPS" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-gray-800 px-2.5 py-1.5 rounded-sm border-b-2 border-[#FF4C3B] text-[11px] font-bold text-[#FF4C3B] tracking-tight shadow-sm flex items-center">C.O.D</div>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-white font-semibold">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>50K+ Customers</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="package" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>10K+ Products</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="map" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>77 Districts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="border-t border-gray-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div>
+                        &copy; 2026 Kinam Na Ta Pvt. Ltd. — Registered in Nepal.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="terms.html" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                        <a href="privacy-policy.html" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </footer>
 

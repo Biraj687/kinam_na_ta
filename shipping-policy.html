@@ -1,4 +1,3 @@
-<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Page: Shipping Policy | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: Industrial-Minimalist, Trust-Focused -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,190 +17,497 @@
                         brand: {
                             primary: '#FF4C3B',
                             secondary: '#000000',
-                            bg: '#F9FAFB'
+                            bg: '#F8FAFC'
                         },
                         slate: {
                             50: '#F8FAFC', 100: '#F1F5F9', 200: '#E2E8F0', 300: '#CBD5E1', 400: '#94A3B8',
                             500: '#64748B', 600: '#475569', 700: '#334155', 800: '#1E293B', 900: '#0F172A', 950: '#020617',
                         }
                     },
-                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem' }
+                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem', '5xl': '2.5rem' }
                 }
             }
         }
     </script>
 
-    <!-- Professional Font (Inter) -->
+    <!-- Professional Font (Outfit & Inter) -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
-        .policy-content p { line-height: 1.8; margin-bottom: 1.5rem; color: #475569; }
-        .policy-content h2 { font-size: 1.5rem; font-weight: 800; color: #0F172A; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.025em; }
-        .policy-content ul { list-style-type: none; margin-bottom: 20px; }
-        .policy-content li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: #475569; }
-        .policy-content li::before { content: ""; position: absolute; left: 0; top: 0.6rem; width: 0.5rem; height: 2px; background: #FF4C3B; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+        
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+        }
+
+        .policy-content h2 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .policy-content h2::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: #FF4C3B;
+            border-radius: 99px;
+        }
+
+        .policy-content p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-content ul {
+            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        .policy-content li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+        }
+
+        .policy-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF4C3B;
+            font-weight: 700;
+        }
+
+        .nav-link.active {
+            color: #FF4C3B;
+            background: #FFF1F0;
+            border-right: 3px solid #FF4C3B;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
     </style>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-brand-bg text-brand-secondary">
+<body class="bg-brand-bg text-brand-secondary selection:bg-brand-primary/10 selection:text-brand-primary">
     
     <!-- Header -->
-    <header class="w-full bg-white border-b border-gray-100 text-sm sticky top-0 z-50">
-        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 flex items-center justify-between">
-            <a href="index.html" class="flex-shrink-0">
-                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">KINAM<br/>NA TA</div>
+    <header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0 group">
+                <div class="text-2xl font-black text-brand-primary tracking-tighter leading-[0.8] transition-transform group-hover:scale-105">
+                    KINAM<br/><span class="text-slate-900">NA TA</span>
+                </div>
             </a>
-            <div class="flex items-center space-x-6">
-                <a href="contact.html" class="text-slate-600 hover:text-brand-primary transition font-medium">Track Order</a>
-                <a href="account.html" class="flex items-center gap-2 text-slate-600 hover:text-brand-primary transition font-medium">
-                    <i data-lucide="user" class="w-5 h-5"></i>
-                    <span class="hidden sm:inline">Account</span>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="index.html" class="hover:text-brand-primary transition">Marketplace</a>
+                    <a href="contact.html" class="hover:text-brand-primary transition">Help Center</a>
+                </nav>
+                <a href="account.html" class="flex items-center gap-3 px-5 py-2.5 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-brand-primary transition-all shadow-lg shadow-slate-900/10 active:scale-95">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    <span>Account</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-16">
-        <div class="max-w-4xl mx-auto">
-            
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Shipping Policy</h1>
-                <p class="text-slate-500 text-lg">Detailed information on delivery times, costs, and methods across Nepal.</p>
-                <div class="mt-8 p-4 bg-white border border-slate-100 rounded-2xl inline-flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    <i data-lucide="truck" class="w-4 h-4 text-brand-primary"></i>
-                    Fast & Reliable Delivery
+    <!-- Hero Section -->
+    <section class="relative w-full py-20 overflow-hidden bg-white">
+        <div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+            <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+        </div>
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 text-[10px] font-bold uppercase tracking-widest mb-6">
+                    <i data-lucide="truck" class="w-3 h-3"></i>
+                    Nationwide Delivery
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-8 leading-[1.1]">
+                    Shipping <span class="text-brand-primary">Policy.</span>
+                </h1>
+                <p class="text-xl text-slate-500 leading-relaxed max-w-2xl">
+                    We deliver to every corner of Nepal. From the bustling streets of Kathmandu to the serene villages of the Himalayas, we ensure your products arrive safely and on time.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-8 items-center text-sm font-bold text-slate-400">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-brand-primary">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-900">12-24 Hours</p>
+                            <p class="text-[10px] uppercase tracking-widest">Processing Time</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-brand-primary">
+                            <i data-lucide="map" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-900">77 Districts</p>
+                            <p class="text-[10px] uppercase tracking-widest">Total Coverage</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Shipping Stats Bar -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-white border border-slate-100 p-6 rounded-3xl shadow-sm text-center group hover:border-brand-primary/20 transition-all">
-                    <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all">
-                        <i data-lucide="clock" class="w-6 h-6"></i>
+    <!-- Main Content Area -->
+    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-12 md:py-20">
+        <div class="flex flex-col lg:flex-row gap-16">
+            
+            <!-- Sticky Navigation Sidebar -->
+            <aside class="w-full lg:w-80 shrink-0">
+                <div class="lg:sticky lg:top-32 space-y-8">
+                    <div class="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+                        <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-6 px-2">On this page</h3>
+                        <nav class="flex flex-col space-y-1">
+                            <a href="#processing" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>1. Order Processing</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#rates" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>2. Delivery Rates</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#tracking" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>3. Order Tracking</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#insurance" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>4. Damage & Loss</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                        </nav>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1">Processing Time</h4>
-                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">12 - 24 Hours</p>
-                </div>
-                <div class="bg-white border border-slate-100 p-6 rounded-3xl shadow-sm text-center group hover:border-brand-primary/20 transition-all">
-                    <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all">
-                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+
+                    <!-- Delivery Banner -->
+                    <div class="bg-slate-900 rounded-3xl p-8 text-white">
+                        <h4 class="text-xl font-bold mb-4">Free Shipping</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Enjoy free delivery on all orders over NPR 5,000 across Nepal.</p>
+                        <div class="py-3 px-4 bg-white/10 rounded-xl text-xs font-bold text-center border border-white/10">
+                            No code required
+                        </div>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1">Coverage</h4>
-                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">All 77 Districts</p>
                 </div>
-                <div class="bg-white border border-slate-100 p-6 rounded-3xl shadow-sm text-center group hover:border-brand-primary/20 transition-all">
-                    <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all">
-                        <i data-lucide="package" class="w-6 h-6"></i>
-                    </div>
-                    <h4 class="font-bold text-slate-900 mb-1">Free Shipping</h4>
-                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">On Orders Over NPR 5,000</p>
-                </div>
-            </div>
+            </aside>
 
             <!-- Policy Content -->
-            <div class="policy-content bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm">
-                
-                <section id="processing">
-                    <h2>1. Processing Time</h2>
-                    <p>All orders are processed within <strong>[Processing Time]</strong>. Orders are not shipped or delivered on public holidays. If we are experiencing a high volume of orders, shipments may be delayed by a few days.</p>
-                </section>
+            <div class="flex-grow max-w-4xl">
+                <div class="policy-content bg-white rounded-[2.5rem] border border-slate-100 p-8 md:p-16 shadow-sm">
+                    
+                    <section id="processing">
+                        <h2>Order Processing</h2>
+                        <p>We know you're excited to receive your order. That's why we process all orders within 12 to 24 hours of confirmation.</p>
+                        <ul>
+                            <li>Orders placed before 2 PM are typically processed the same business day.</li>
+                            <li>Orders placed on Saturdays or public holidays will be processed the following business day.</li>
+                            <li>You will receive an automated SMS and email once your order has been handed over to our logistics partner.</li>
+                        </ul>
+                    </section>
 
-                <section id="shipping-rates">
-                    <h2>2. Shipping Rates & Delivery Estimates</h2>
-                    <p>Shipping charges for your order will be calculated and displayed at checkout. We currently serve <strong>[Shipping Regions]</strong>.</p>
-                    <div class="overflow-x-auto mb-8">
-                        <table class="w-full text-left text-sm border-collapse">
-                            <thead class="bg-slate-50 text-slate-400 uppercase tracking-widest font-bold text-[10px]">
-                                <tr>
-                                    <th class="p-4 border-b border-slate-100">Shipping Method</th>
-                                    <th class="p-4 border-b border-slate-100">Estimated Time</th>
-                                    <th class="p-4 border-b border-slate-100">Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-slate-600">
-                                <tr class="border-b border-slate-50">
-                                    <td class="p-4 font-bold">Inside Kathmandu Valley</td>
-                                    <td class="p-4">1-2 Business Days</td>
-                                    <td class="p-4 text-brand-primary font-bold">NPR 100</td>
-                                </tr>
-                                <tr class="border-b border-slate-50">
-                                    <td class="p-4 font-bold">Major Cities (Outside Valley)</td>
-                                    <td class="p-4">3-5 Business Days</td>
-                                    <td class="p-4 text-brand-primary font-bold">NPR 150</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 font-bold">Remote Areas</td>
-                                    <td class="p-4">5-7 Business Days</td>
-                                    <td class="p-4 text-brand-primary font-bold">NPR 250</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section id="tracking">
-                    <h2>3. Shipment Confirmation & Tracking</h2>
-                    <p>You will receive a Shipment Confirmation email once your order has shipped containing your tracking number(s). The tracking number will be active within 24 hours. You can also track your order directly from your <a href="account.html" class="text-brand-primary font-bold">Account Dashboard</a>.</p>
-                </section>
-
-                <section id="damages">
-                    <h2>4. Damages & Incorrect Address</h2>
-                    <p>Kinam Na Ta is not liable for any products damaged or lost during shipping if the incorrect address was provided. If you receive your order damaged, please contact the shipment carrier to file a claim or reach out to our support team for assistance.</p>
-                    <p>Please save all packaging materials and damaged goods before filing a claim.</p>
-                </section>
-
-                <section id="international">
-                    <h2>5. International Shipping</h2>
-                    <p>We currently do not ship outside of Nepal. We are working on expanding our services to international customers in the future.</p>
-                </section>
-
-                <section id="contact" class="mt-12 pt-12 border-t border-slate-50">
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex items-center justify-between gap-6 flex-col sm:flex-row">
-                        <div>
-                            <h4 class="font-bold text-slate-900 mb-2">Shipping Support</h4>
-                            <p class="text-sm text-slate-500 mb-0 leading-relaxed">Need help with a delivery? Our logistics team is here.</p>
+                    <section id="rates">
+                        <h2>Delivery Rates & Timelines</h2>
+                        <p>We offer competitive shipping rates tailored to your location. Timelines are estimates and may vary due to weather or road conditions.</p>
+                        
+                        <div class="overflow-hidden border border-slate-100 rounded-2xl mb-8">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-slate-50 border-b border-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-4 font-bold text-slate-900 uppercase tracking-widest text-[10px]">Region</th>
+                                        <th class="px-6 py-4 font-bold text-slate-900 uppercase tracking-widest text-[10px]">Timeline</th>
+                                        <th class="px-6 py-4 font-bold text-slate-900 uppercase tracking-widest text-[10px]">Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-50">
+                                    <tr>
+                                        <td class="px-6 py-4 font-semibold">Kathmandu Valley</td>
+                                        <td class="px-6 py-4 text-slate-500">1 - 2 Days</td>
+                                        <td class="px-6 py-4 font-bold text-brand-primary">NPR 100</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-semibold">Major Cities (Pokhara, Biratnagar, etc)</td>
+                                        <td class="px-6 py-4 text-slate-500">3 - 5 Days</td>
+                                        <td class="px-6 py-4 font-bold text-brand-primary">NPR 150</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 font-semibold">Remote Regions</td>
+                                        <td class="px-6 py-4 text-slate-500">5 - 7 Days</td>
+                                        <td class="px-6 py-4 font-bold text-brand-primary">NPR 250</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <a href="contact.html" class="px-6 py-3 bg-slate-900 text-white font-bold rounded-xl text-sm whitespace-nowrap hover:bg-slate-800 transition">Contact Logistics</a>
+                        <p class="italic text-slate-400 text-sm">Note: Free shipping is automatically applied to all orders with a subtotal exceeding NPR 5,000.</p>
+                    </section>
+
+                    <section id="tracking">
+                        <h2>Order Tracking</h2>
+                        <p>Stay updated on your package's journey. Every Kinam Na Ta order comes with real-time tracking.</p>
+                        <p>Once your order is dispatched, you can track it via:</p>
+                        <ul>
+                            <li>The link provided in your shipping confirmation email.</li>
+                            <li>Your account dashboard under "Order History".</li>
+                            <li>Directly on our logistics partner's website using your KNT tracking number.</li>
+                        </ul>
+                    </section>
+
+                    <section id="insurance">
+                        <h2>Damage & Loss Insurance</h2>
+                        <p>Your satisfaction is guaranteed. We take full responsibility for your order until it is safely in your hands.</p>
+                        <ul>
+                            <li><strong>Damaged Goods:</strong> If your product is damaged during transit, please notify us within 24 hours of delivery. We will arrange a free replacement.</li>
+                            <li><strong>Lost Packages:</strong> If your order does not arrive within the estimated timeline, we will conduct an investigation and issue a full refund or resend the items at no extra cost.</li>
+                        </ul>
+                    </section>
+
+                    <div class="mt-20 pt-12 border-t border-slate-100 text-center">
+                        <div class="inline-flex items-center gap-3 p-2 bg-slate-50 rounded-2xl border border-slate-100 mb-8">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[10px] font-bold">K</div>
+                                <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center text-[10px] font-bold">L</div>
+                                <div class="w-8 h-8 rounded-full bg-slate-400 border-2 border-white flex items-center justify-center text-[10px] font-bold">S</div>
+                            </div>
+                            <span class="text-xs font-bold text-slate-600 px-2">Trusted by 10k+ customers nationwide</span>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-4">Questions about your delivery?</h3>
+                        <p class="text-slate-500 mb-8 max-w-lg mx-auto">Our logistics support team is available from 10 AM to 6 PM (Sun-Fri) to assist with any tracking inquiries.</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="contact.html" class="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold hover:bg-red-600 transition-all shadow-xl shadow-brand-primary/20">
+                                Contact Shipping Support
+                            </a>
+                            <a href="account.html" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all">
+                                Go to Dashboard
+                            </a>
+                        </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-900">
+    <footer class="w-full bg-[#0a0a0a] text-[#9ca3af] py-6 mt-12 font-sans">
         <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-slate-900 pb-16">
-                <div>
-                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none mb-6">KINAM<br/>NA TA</div>
-                    <p class="text-slate-400 text-sm leading-relaxed">Nepal's most trusted marketplace for quality and speed.</p>
+            
+            <!-- Top Section (Identity & Newsletter) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-b border-gray-800 pb-8 mb-10">
+                
+                <!-- Left Side: Identity -->
+                <div class="space-y-4">
+                    <div class="text-3xl font-extrabold text-white tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        Nepal's fastest-growing e-commerce destination. Shop smart, shop local delivered across all 77 districts.
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Legal</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-white transition">Terms of Service</a></li>
-                        <li><a href="shipping-policy.html" class="hover:text-white transition text-white">Shipping Policy</a></li>
-                        <li><a href="returns-policy.html" class="hover:text-white transition">Returns Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Support</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
-                        <li><a href="account.html" class="hover:text-white transition">My Account</a></li>
-                    </ul>
+
+                <!-- Right Side: Newsletter -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center mb-2">
+                        <div class="w-1.5 h-6 bg-[#FF4C3B] rounded-sm mr-3"></div>
+                        <h3 class="text-xs font-bold text-[#FF4C3B] tracking-widest uppercase">NEWSLETTER</h3>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-1 tracking-tight">Get exclusive deals before everyone else</h4>
+                    <p class="text-sm mb-4 text-gray-400">Join 50,000+ Nepali shoppers.</p>
+                    
+                    <form class="flex w-full max-w-md items-stretch">
+                        <input type="email" placeholder="Your email address" class="w-full bg-gray-900 border border-gray-800 rounded-l-lg px-5 py-3 text-sm focus:outline-none focus:border-[#FF4C3B] focus:ring-1 focus:ring-[#FF4C3B] text-white placeholder-gray-500 transition-all duration-300">
+                        <button type="submit" class="bg-[#FF4C3B] text-white px-6 font-bold text-sm rounded-r-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,76,59,0.4)] transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
-            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center">&copy; 2026 Kinam Na Ta Pvt. Ltd.</p>
+
+            <!-- Middle Section (Navigation Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 relative">
+                
+                <!-- Column 1: Shop -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Shop</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: My Account -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">My Account</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="login.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sign In</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Register</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Track My Order</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Wishlist</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Loyalty Points</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Help Center -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Help Center</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">FAQs</a></li>
+                        <li><a href="shipping-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shipping Policy</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Return Policy</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sell on KNT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Apps -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Contact & Apps</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 shrink-0 mt-0.5"></i>
+                            <span>New Baneshwor, Kathmandu</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="#" class="hover:text-[#FF4C3B] transition-colors duration-300">+977 1 1234567</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="mailto:support@kinamnata.com" class="hover:text-[#FF4C3B] transition-colors duration-300">support@kinamnata.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- App Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <i data-lucide="apple" class="w-6 h-6 text-white group-hover:text-[#FF4C3B] transition-colors"></i>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[10px] text-gray-400 leading-none">Download on the</span>
+                                <span class="text-sm font-bold text-white leading-tight">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-white group-hover:text-[#FF4C3B] transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M4.33 1.95L18.42 10.3l-3.3 2.91-7.85-6.84L4.33 1.95zM3.48 3.5l6.98 6.09L3.48 16.55V3.5zm8.13 7.08l2.9 2.53-2.9 2.53-2.9-2.53 2.9-2.53zm3.72 3.25l3.09-2.7 1.25.75L6.09 21.05l7.24-7.22z"></path></svg>
+                            <div class="flex flex-col text-left ml-2">
+                                <span class="text-[10px] text-gray-400 leading-none">GET IT ON</span>
+                                <span class="text-sm font-bold text-white leading-tight">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Bottom Section (Trust & Payments) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                
+                <!-- Trust Stats & Payments Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8 text-sm">
+                    
+                    <!-- Accepted Payments Bar -->
+                    <div class="flex flex-wrap justify-center items-center gap-3">
+                        <span class="mr-2 text-xs font-semibold uppercase tracking-wider text-gray-500">ACCEPTED PAYMENTS:</span>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#60B52F] shadow-sm flex items-center justify-center"><img src="images/footer/e sewa.png" alt="eSewa" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#5C2D91] shadow-sm flex items-center justify-center"><img src="images/footer/khalti.png" alt="Khalti" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#0055A5] shadow-sm flex items-center justify-center"><img src="images/footer/connect ips.png" alt="ConnectIPS" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-gray-800 px-2.5 py-1.5 rounded-sm border-b-2 border-[#FF4C3B] text-[11px] font-bold text-[#FF4C3B] tracking-tight shadow-sm flex items-center">C.O.D</div>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-white font-semibold">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>50K+ Customers</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="package" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>10K+ Products</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="map" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>77 Districts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="border-t border-gray-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div>
+                        &copy; 2026 Kinam Na Ta Pvt. Ltd. — Registered in Nepal.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="terms.html" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                        <a href="privacy-policy.html" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        
+        // Active link highlighting on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

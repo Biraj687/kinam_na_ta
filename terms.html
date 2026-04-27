@@ -1,4 +1,3 @@
-<!-- AI Context: Project Name: KINAM NA TA (Nepali E-commerce Brand) | Page: Terms & Conditions | Stack: HTML5, Tailwind CSS (via Play CDN) | Reference Style: Industrial-Minimalist, Legal-Professional -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,161 +17,487 @@
                         brand: {
                             primary: '#FF4C3B',
                             secondary: '#000000',
-                            bg: '#F9FAFB'
+                            bg: '#F8FAFC'
                         },
                         slate: {
                             50: '#F8FAFC', 100: '#F1F5F9', 200: '#E2E8F0', 300: '#CBD5E1', 400: '#94A3B8',
                             500: '#64748B', 600: '#475569', 700: '#334155', 800: '#1E293B', 900: '#0F172A', 950: '#020617',
                         }
                     },
-                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem' }
+                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem', '5xl': '2.5rem' }
                 }
             }
         }
     </script>
 
-    <!-- Professional Font (Inter) -->
+    <!-- Professional Font (Outfit & Inter) -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
-        .policy-content p { line-height: 1.8; margin-bottom: 1.5rem; color: #475569; }
-        .policy-content h2 { font-size: 1.5rem; font-weight: 800; color: #0F172A; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.025em; }
-        .policy-content ul { list-style-type: none; margin-bottom: 20px; }
-        .policy-content li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: #475569; }
-        .policy-content li::before { content: ""; position: absolute; left: 0; top: 0.6rem; width: 0.5rem; height: 2px; background: #FF4C3B; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+        
+        h1, h2, h3, h4 { 
+            font-family: 'Outfit', sans-serif; 
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .policy-content h2 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .policy-content h2::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: #FF4C3B;
+            border-radius: 99px;
+        }
+
+        .policy-content p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-content ul {
+            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        .policy-content li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            color: #475569;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+        }
+
+        .policy-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF4C3B;
+            font-weight: 700;
+        }
+
+        .nav-link.active {
+            color: #FF4C3B;
+            background: #FFF1F0;
+            border-right: 3px solid #FF4C3B;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
     </style>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-brand-bg text-brand-secondary">
+<body class="bg-brand-bg text-brand-secondary selection:bg-brand-primary/10 selection:text-brand-primary">
     
     <!-- Header -->
-    <header class="w-full bg-white border-b border-gray-100 text-sm sticky top-0 z-50">
-        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 flex items-center justify-between">
-            <a href="index.html" class="flex-shrink-0">
-                <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none">KINAM<br/>NA TA</div>
+    <header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0 group">
+                <div class="text-2xl font-black text-brand-primary tracking-tighter leading-[0.8] transition-transform group-hover:scale-105">
+                    KINAM<br/><span class="text-slate-900">NA TA</span>
+                </div>
             </a>
-            <div class="flex items-center space-x-6">
-                <a href="contact.html" class="text-slate-600 hover:text-brand-primary transition font-medium">Support</a>
-                <a href="account.html" class="flex items-center gap-2 text-slate-600 hover:text-brand-primary transition font-medium">
-                    <i data-lucide="user" class="w-5 h-5"></i>
-                    <span class="hidden sm:inline">Account</span>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="index.html" class="hover:text-brand-primary transition">Marketplace</a>
+                    <a href="contact.html" class="hover:text-brand-primary transition">Help Center</a>
+                </nav>
+                <a href="account.html" class="flex items-center gap-3 px-5 py-2.5 bg-slate-900 text-white rounded-2xl text-sm font-bold hover:bg-brand-primary transition-all shadow-lg shadow-slate-900/10 active:scale-95">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    <span>Account</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-16">
-        <div class="max-w-4xl mx-auto">
-            
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Terms & Conditions</h1>
-                <p class="text-slate-500 text-lg">The rules and guidelines for using the Kinam Na Ta marketplace.</p>
-                <div class="mt-8 p-4 bg-white border border-slate-100 rounded-2xl inline-flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest">
-                    <i data-lucide="calendar" class="w-4 h-4 text-brand-primary"></i>
-                    Last Updated: April 26, 2026
+    <!-- Hero Section -->
+    <section class="relative w-full py-20 overflow-hidden bg-white">
+        <div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+            <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+        </div>
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                    </span>
+                    Legal Documentation
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-8 leading-[1.1]">
+                    Terms of <span class="text-brand-primary">Service.</span>
+                </h1>
+                <p class="text-xl text-slate-500 leading-relaxed max-w-2xl">
+                    Please read these terms carefully before using the Kinam Na Ta marketplace. These rules govern your relationship with our platform and ensure a fair experience for everyone.
+                </p>
+                <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        Last Updated: April 27, 2026
+                    </div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        Reading time: 8 mins
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Table of Contents -->
-            <div class="bg-white border border-slate-100 rounded-3xl p-8 mb-12 shadow-sm">
-                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.2em] mb-6">Terms Overview</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a href="#acceptance" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Acceptance of Terms</a>
-                    <a href="#accounts" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Account Responsibility</a>
-                    <a href="#products" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Product Information</a>
-                    <a href="#payments" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Payments & Orders</a>
-                    <a href="#intellectual" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Intellectual Property</a>
-                    <a href="#liability" class="text-slate-500 hover:text-brand-primary text-sm flex items-center gap-2 transition-colors"><i data-lucide="arrow-right" class="w-3 h-3"></i> Limitation of Liability</a>
+    <!-- Main Content Area -->
+    <main class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-12 md:py-20">
+        <div class="flex flex-col lg:flex-row gap-16">
+            
+            <!-- Sticky Navigation Sidebar -->
+            <aside class="w-full lg:w-80 shrink-0">
+                <div class="lg:sticky lg:top-32 space-y-8">
+                    <div class="bg-white rounded-3xl border border-slate-100 p-6 shadow-sm">
+                        <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-6 px-2">On this page</h3>
+                        <nav class="flex flex-col space-y-1">
+                            <a href="#acceptance" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>1. Acceptance</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#accounts" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>2. User Accounts</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#products" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>3. Products & Pricing</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#payments" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>4. Order Payments</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#intellectual" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>5. Intellectual Property</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                            <a href="#liability" class="nav-link px-4 py-3 rounded-xl text-sm font-semibold text-slate-500 hover:text-brand-primary hover:bg-slate-50 transition-all flex items-center justify-between group">
+                                <span>6. Limitation of Liability</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Contact Support Cluster -->
+                    <div class="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden group">
+                        <div class="absolute -top-12 -right-12 w-32 h-32 bg-brand-primary/20 rounded-full blur-3xl transition-transform group-hover:scale-150"></div>
+                        <h4 class="text-xl font-bold mb-3 relative z-10">Have questions?</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6 relative z-10">Our legal team is here to clarify any points you might find confusing.</p>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition-all relative z-10">
+                            Contact Support <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </aside>
 
             <!-- Policy Content -->
-            <div class="policy-content bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm">
-                
-                <section id="acceptance">
-                    <h2>1. Acceptance of Terms</h2>
-                    <p>By accessing and using Kinam Na Ta, you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, please do not use this website. We reserve the right to update these terms at any time, and continued use of the site signifies acceptance of any changes.</p>
-                </section>
+            <div class="flex-grow max-w-4xl">
+                <div class="policy-content bg-white rounded-[2.5rem] border border-slate-100 p-8 md:p-16 shadow-sm">
+                    
+                    <section id="acceptance">
+                        <h2>Acceptance of Terms</h2>
+                        <p>By accessing and using the Kinam Na Ta platform, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. These terms constitute a legally binding agreement between you and Kinam Na Ta Pvt. Ltd.</p>
+                        <p>If you do not agree with any part of these terms, you must immediately cease all use of our services. We reserve the right to modify these terms at any time without prior notice. Your continued use of the platform after changes are posted constitutes your acceptance of the revised terms.</p>
+                    </section>
 
-                <section id="accounts">
-                    <h2>2. User Accounts</h2>
-                    <p>When you create an account with us, you must provide information that is accurate and complete. You are responsible for safeguarding the password that you use to access the service and for any activities or actions under your password.</p>
-                    <ul>
-                        <li>You must be at least 18 years old to use this service.</li>
-                        <li>You agree not to disclose your password to any third party.</li>
-                        <li>You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</li>
-                    </ul>
-                </section>
+                    <section id="accounts">
+                        <h2>User Accounts</h2>
+                        <p>To access certain features of our marketplace, you may be required to create an account. You are solely responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+                        <ul>
+                            <li>You must be at least 18 years of age or have legal parental/guardian consent to use our services.</li>
+                            <li>You agree to provide accurate, current, and complete information during the registration process.</li>
+                            <li>Kinam Na Ta reserves the right to suspend or terminate accounts that provide false information or violate our safety guidelines.</li>
+                            <li>You must notify us immediately of any unauthorized use of your account or security breaches.</li>
+                        </ul>
+                    </section>
 
-                <section id="products">
-                    <h2>3. Products & Pricing</h2>
-                    <p>We strive to provide accurate product information, including pricing and availability. However, errors may occur. In the event of a pricing error, we reserve the right to cancel any orders placed for that item.</p>
-                    <ul>
-                        <li>All prices are listed in NPR (Nepalese Rupees) unless stated otherwise.</li>
-                        <li>Product images are for illustrative purposes; actual products may vary slightly.</li>
-                        <li>Availability of products is subject to change without notice.</li>
-                    </ul>
-                </section>
+                    <section id="products">
+                        <h2>Products & Pricing</h2>
+                        <p>We work tirelessly to ensure that all product descriptions, images, and prices are accurate. However, since we operate as a marketplace with multiple vendors, discrepancies may occasionally occur.</p>
+                        <ul>
+                            <li>All prices are listed in Nepalese Rupees (NPR) and include applicable taxes unless stated otherwise.</li>
+                            <li>Product availability is subject to change without notice. An item in your cart is not reserved until the order is confirmed.</li>
+                            <li>In the event of a pricing error, we reserve the right to cancel orders placed for the incorrectly priced item.</li>
+                            <li>Product colors and details may appear differently depending on your screen settings.</li>
+                        </ul>
+                    </section>
 
-                <section id="payments">
-                    <h2>4. Payments & Order Acceptance</h2>
-                    <p>We accept various payment methods including eSewa, Khalti, and Cash on Delivery (COD). We reserve the right to refuse or cancel your order at any time for reasons including but not limited to: product availability, errors in the description or price of the product, or fraud detection.</p>
-                </section>
+                    <section id="payments">
+                        <h2>Payments & Order Acceptance</h2>
+                        <p>We accept a variety of secure payment methods to provide a seamless shopping experience. By placing an order, you represent that you are authorized to use the chosen payment method.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+                            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-2">Digital Wallets</h4>
+                                <p class="text-sm text-slate-500">Secure payments via eSewa, Khalti, and IME Pay.</p>
+                            </div>
+                            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-2">Cash on Delivery</h4>
+                                <p class="text-sm text-slate-500">Available for verified addresses across major cities.</p>
+                            </div>
+                        </div>
+                        <p>Order confirmation only occurs once we have verified your payment or contact details for COD. We reserve the right to refuse service to anyone at any time for any reason.</p>
+                    </section>
 
-                <section id="intellectual">
-                    <h2>5. Intellectual Property</h2>
-                    <p>The marketplace and its original content, features, and functionality are and will remain the exclusive property of Kinam Na Ta and its licensors. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Kinam Na Ta.</p>
-                </section>
+                    <section id="intellectual">
+                        <h2>Intellectual Property</h2>
+                        <p>The Kinam Na Ta name, logo, website design, and all original content (excluding user-generated reviews and vendor products) are the exclusive property of Kinam Na Ta Pvt. Ltd. and are protected by copyright, trademark, and other laws of Nepal.</p>
+                        <p>You may not use our branding, imagery, or proprietary code without explicit written permission from our legal department. Any unauthorized use may result in legal action.</p>
+                    </section>
 
-                <section id="liability">
-                    <h2>6. Limitation of Liability</h2>
-                    <p>In no event shall Kinam Na Ta, nor its directors, employees, or partners, be liable for any indirect, incidental, or consequential damages resulting from your use of the website or any products purchased through it.</p>
-                </section>
+                    <section id="liability">
+                        <h2>Limitation of Liability</h2>
+                        <p>Kinam Na Ta provides the platform on an "as is" and "as available" basis. To the fullest extent permitted by law, we disclaim all warranties, express or implied, regarding the platform's operation or the products sold by third-party vendors.</p>
+                        <p>Kinam Na Ta shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, or for the cost of procurement of substitute goods.</p>
+                    </section>
 
-                <section id="contact" class="mt-12 pt-12 border-t border-slate-50">
-                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                        <h4 class="font-bold text-slate-900 mb-2">Legal Inquiries</h4>
-                        <p class="text-sm text-slate-500 mb-0 leading-relaxed">If you have any questions about these Terms, please contact our legal team at <a href="mailto:[Support Email]" class="text-brand-primary font-bold">[Support Email]</a>.</p>
+                    <div class="mt-20 pt-12 border-t border-slate-100">
+                        <div class="bg-brand-primary/5 rounded-[2rem] p-8 md:p-12 text-center border border-brand-primary/10">
+                            <h3 class="text-2xl font-extrabold text-slate-900 mb-4">Still have questions?</h3>
+                            <p class="text-slate-500 mb-8 max-w-lg mx-auto">If any part of these terms is unclear, our support team is happy to help you understand your rights and responsibilities.</p>
+                            <a href="mailto:legal@kinamnata.com" class="inline-flex items-center gap-3 px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold hover:bg-red-600 transition-all shadow-xl shadow-brand-primary/20">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                                Email Legal Team
+                            </a>
+                        </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-900">
+    <footer class="w-full bg-[#0a0a0a] text-[#9ca3af] py-6 mt-12 font-sans">
         <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem]">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-slate-900 pb-16">
-                <div>
-                    <div class="text-2xl font-extrabold text-brand-primary tracking-tighter leading-none mb-6">KINAM<br/>NA TA</div>
-                    <p class="text-slate-400 text-sm leading-relaxed">Defining the standard for Nepalese E-commerce.</p>
+            
+            <!-- Top Section (Identity & Newsletter) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-b border-gray-800 pb-8 mb-10">
+                
+                <!-- Left Side: Identity -->
+                <div class="space-y-4">
+                    <div class="text-3xl font-extrabold text-white tracking-tighter leading-none">
+                        KINAM<br/>NA TA
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-md">
+                        Nepal's fastest-growing e-commerce destination. Shop smart, shop local delivered across all 77 districts.
+                    </p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Legal</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-white transition text-white">Terms of Service</a></li>
-                        <li><a href="shipping-policy.html" class="hover:text-white transition">Shipping Policy</a></li>
-                        <li><a href="returns-policy.html" class="hover:text-white transition">Returns Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-slate-500">Support</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm">
-                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
-                    </ul>
+
+                <!-- Right Side: Newsletter -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center mb-2">
+                        <div class="w-1.5 h-6 bg-[#FF4C3B] rounded-sm mr-3"></div>
+                        <h3 class="text-xs font-bold text-[#FF4C3B] tracking-widest uppercase">NEWSLETTER</h3>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-1 tracking-tight">Get exclusive deals before everyone else</h4>
+                    <p class="text-sm mb-4 text-gray-400">Join 50,000+ Nepali shoppers.</p>
+                    
+                    <form class="flex w-full max-w-md items-stretch">
+                        <input type="email" placeholder="Your email address" class="w-full bg-gray-900 border border-gray-800 rounded-l-lg px-5 py-3 text-sm focus:outline-none focus:border-[#FF4C3B] focus:ring-1 focus:ring-[#FF4C3B] text-white placeholder-gray-500 transition-all duration-300">
+                        <button type="submit" class="bg-[#FF4C3B] text-white px-6 font-bold text-sm rounded-r-lg hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,76,59,0.4)] transition-all duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
-            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center">&copy; 2026 Kinam Na Ta Pvt. Ltd.</p>
+
+            <!-- Middle Section (Navigation Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16 relative">
+                
+                <!-- Column 1: Shop -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Shop</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">SuperDeals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">All Categories</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Flash Sales</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Collections</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: My Account -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">My Account</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="login.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sign In</a></li>
+                        <li><a href="signup.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Register</a></li>
+                        <li><a href="account.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">My Profile</a></li>
+                        <li><a href="cart.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shopping Cart</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Returns & Refunds</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Help Center -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Help Center</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">FAQs</a></li>
+                        <li><a href="shipping-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Shipping Policy</a></li>
+                        <li><a href="returns-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Return Policy</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#FF4C3B] hover:translate-x-1 inline-block transition-all duration-300">Sell on KNT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Apps -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-1 h-5 bg-[#FF4C3B] rounded-sm mr-2.5"></div>
+                        <h4 class="text-white font-bold text-lg">Contact & Apps</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 shrink-0 mt-0.5"></i>
+                            <span>New Baneshwor, Kathmandu</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="#" class="hover:text-[#FF4C3B] transition-colors duration-300">+977 1 1234567</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-500 shrink-0"></i>
+                            <a href="mailto:support@kinamnata.com" class="hover:text-[#FF4C3B] transition-colors duration-300">support@kinamnata.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- App Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <i data-lucide="apple" class="w-6 h-6 text-white group-hover:text-[#FF4C3B] transition-colors"></i>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[10px] text-gray-400 leading-none">Download on the</span>
+                                <span class="text-sm font-bold text-white leading-tight">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 bg-[#111111] border border-gray-800 rounded-lg px-4 py-2.5 hover:border-[#FF4C3B] hover:bg-[#1a1a1a] transition-all duration-300 group">
+                            <svg class="w-5 h-5 text-white group-hover:text-[#FF4C3B] transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M4.33 1.95L18.42 10.3l-3.3 2.91-7.85-6.84L4.33 1.95zM3.48 3.5l6.98 6.09L3.48 16.55V3.5zm8.13 7.08l2.9 2.53-2.9 2.53-2.9-2.53 2.9-2.53zm3.72 3.25l3.09-2.7 1.25.75L6.09 21.05l7.24-7.22z"></path></svg>
+                            <div class="flex flex-col text-left ml-2">
+                                <span class="text-[10px] text-gray-400 leading-none">GET IT ON</span>
+                                <span class="text-sm font-bold text-white leading-tight">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Bottom Section (Trust & Payments) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                
+                <!-- Trust Stats & Payments Row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8 text-sm">
+                    
+                    <!-- Accepted Payments Bar -->
+                    <div class="flex flex-wrap justify-center items-center gap-3">
+                        <span class="mr-2 text-xs font-semibold uppercase tracking-wider text-gray-500">ACCEPTED PAYMENTS:</span>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#60B52F] shadow-sm flex items-center justify-center"><img src="images/footer/e sewa.png" alt="eSewa" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#5C2D91] shadow-sm flex items-center justify-center"><img src="images/footer/khalti.png" alt="Khalti" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-white px-2.5 py-1.5 rounded-sm border-b-2 border-[#0055A5] shadow-sm flex items-center justify-center"><img src="images/footer/connect ips.png" alt="ConnectIPS" class="h-5 w-auto object-contain"></div>
+                        <div class="bg-gray-800 px-2.5 py-1.5 rounded-sm border-b-2 border-[#FF4C3B] text-[11px] font-bold text-[#FF4C3B] tracking-tight shadow-sm flex items-center">C.O.D</div>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-white font-semibold">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>50K+ Customers</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="package" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>10K+ Products</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="map" class="w-4 h-4 text-[#FF4C3B]"></i>
+                            <span>77 Districts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="border-t border-gray-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div>
+                        &copy; 2026 Kinam Na Ta Pvt. Ltd. — Registered in Nepal.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="terms.html" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                        <a href="privacy-policy.html" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        
+        // Active link highlighting on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
