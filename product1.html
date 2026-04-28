@@ -43,7 +43,7 @@
     <header class="w-full bg-white border-b border-gray-200 text-sm">
         
         <!-- Main Header Row -->
-        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between gap-8">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 lg:py-5 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-8">
             
             <!-- Logo -->
                 <a href="index.html" class="flex-shrink-0">
@@ -53,20 +53,20 @@
                 </a>
 
                 <!-- Search Bar -->
-                <div class="flex-grow flex-1 px-4">
+                <div class="order-last lg:order-none w-full lg:w-auto flex-grow lg:flex-1 px-0 lg:px-4 mt-2 lg:mt-0">
                     <form class="flex w-full items-stretch">
                         <input type="text" placeholder="I'm shopping for..." class="w-full border-2 border-brand-primary border-r-0 rounded-l-md px-4 py-2 text-base focus:outline-none focus:ring-0 placeholder-gray-400 font-medium">
-                        <button type="submit" class="bg-brand-primary text-white px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
-                            <i data-lucide="search" class="w-5 h-5 mr-1 text-white"></i> Search
+                        <button type="submit" class="bg-brand-primary text-white px-4 md:px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
+                            <i data-lucide="search" class="w-5 h-5 md:mr-1 text-white"></i> <span class="hidden md:inline">Search</span>
                         </button>
                     </form>
                 </div>
 
                 <!-- Header Actions Row -->
-                <div class="flex items-center space-x-6 flex-shrink-0">
+                <div class="flex items-center space-x-4 md:space-x-6 flex-shrink-0">
                     
                     <!-- Block 1: App Download -->
-                    <a href="#" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                    <a href="#" class="hidden sm:flex items-center space-x-2 hover:text-brand-primary transition group">
                         <i data-lucide="smartphone" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                         <div class="flex flex-col">
                             <span class="text-[11px] text-gray-500 leading-tight">Download the</span>
@@ -75,12 +75,16 @@
                     </a>
 
                     <!-- Block 2: Account/Welcome -->
-                    <a href="login.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                    <a href="login.html" class="hidden sm:flex items-center space-x-2 hover:text-brand-primary transition group">
                         <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                         <div class="flex flex-col">
                             <span class="text-[11px] text-gray-500 leading-tight">Welcome</span>
                             <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">Sign in / Register</span>
                         </div>
+                    </a>
+                    
+                    <a href="login.html" class="sm:hidden flex items-center hover:text-brand-primary transition group">
+                        <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                     </a>
 
                     <!-- Block 3: Cart -->
@@ -98,7 +102,7 @@
 
             <!-- Navigation Bar (Bottom) -->
             <div class="w-full border-t border-gray-100 shadow-[0_4px_10px_-4px_rgba(0,0,0,0.05)]">
-                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-8 text-[14px]">
+                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-4 md:gap-8 text-[14px]">
                     
                     <!-- Home Button -->
                     <a href="index.html" class="flex items-center bg-gray-100 rounded-full px-4 py-2 text-brand-secondary font-bold hover:bg-gray-200 transition flex-shrink-0 cursor-pointer">
@@ -137,19 +141,19 @@
             <!-- Left Column: Images & Specs -->
             <div class="w-full lg:w-[40%] flex flex-col gap-6 sticky top-8 lg:pr-4 relative">
                 <!-- Image Gallery -->
-                <div class="flex gap-4 h-[400px] sm:h-[500px]">
+                <div class="flex flex-col-reverse sm:flex-row gap-4 h-auto sm:h-[500px]">
                     <!-- Thumbnails -->
-                    <div class="flex flex-col gap-3 w-20 overflow-y-auto scrollbar-hide flex-shrink-0">
-                        <button class="w-full aspect-square bg-gray-50 rounded-2xl border-2 border-[#FF4C3B] p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors" data-img="images/keyboard.jpg">
+                    <div class="flex flex-row sm:flex-col gap-3 w-full sm:w-20 overflow-x-auto sm:overflow-y-auto scrollbar-hide flex-shrink-0">
+                        <button class="w-16 sm:w-full aspect-square bg-gray-50 rounded-2xl border-2 border-[#FF4C3B] p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors flex-shrink-0" data-img="images/keyboard.jpg">
                             <img src="images/keyboard.jpg" alt="RGB Keyboard Angled" class="max-w-full max-h-full object-contain">
                         </button>
-                        <button class="w-full aspect-square bg-gray-50 rounded-2xl border-2 border-transparent hover:border-gray-300 p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors" data-img="images/keyboard.jpg">
+                        <button class="w-16 sm:w-full aspect-square bg-gray-50 rounded-2xl border-2 border-transparent hover:border-gray-300 p-2 flex items-center justify-center overflow-hidden product-thumbnail transition-colors flex-shrink-0" data-img="images/keyboard.jpg">
                             <img src="images/keyboard.jpg" alt="RGB Keyboard Top" class="max-w-full max-h-full object-contain">
                         </button>
                     </div>
                     
                     <!-- Main Image -->
-                    <div class="flex-1 bg-gray-50 rounded-3xl flex items-center justify-center p-8 relative overflow-hidden group">
+                    <div class="flex-1 bg-gray-50 rounded-3xl flex items-center justify-center p-8 relative overflow-hidden group min-h-[300px] sm:min-h-0">
                         <button class="absolute top-4 right-4 bg-white/80 backdrop-blur-[2px] p-2.5 rounded-full shadow-sm text-gray-700 hover:text-[#FF4C3B] hover:bg-white transition-all z-10">
                             <i data-lucide="heart" class="w-6 h-6"></i>
                         </button>
@@ -160,7 +164,7 @@
                 <!-- Technical Specs Fill Block -->
                 <div class="bg-gray-50 rounded-2xl p-6">
                     <h3 class="text-xl font-bold text-[#000000] mb-4">Technical Specifications</h3>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="flex flex-col">
                             <span class="text-sm font-bold text-[#000000] mb-0.5">Switch Type</span>
                             <span class="text-sm font-medium text-gray-500">Outemu Blue (Clicky)</span>

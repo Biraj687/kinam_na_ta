@@ -32,7 +32,7 @@
     <header class="w-full bg-white border-b border-gray-200 text-sm">
         
         <!-- Main Header Row -->
-        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-5 flex items-center justify-between gap-8">
+        <div class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-4 lg:py-5 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-8">
             
             <!-- Logo -->
                 <a href="index.html" class="flex-shrink-0">
@@ -42,20 +42,20 @@
                 </a>
 
                 <!-- Search Bar -->
-                <div class="flex-grow flex-1 px-4">
+                <div class="order-last lg:order-none w-full lg:w-auto flex-grow lg:flex-1 px-0 lg:px-4 mt-2 lg:mt-0">
                     <form class="flex w-full items-stretch">
                         <input type="text" placeholder="I'm shopping for..." class="w-full border-2 border-brand-primary border-r-0 rounded-l-md px-4 py-2 text-base focus:outline-none focus:ring-0 placeholder-gray-400 font-medium">
-                        <button type="submit" class="bg-brand-primary text-white px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
-                            <i data-lucide="search" class="w-5 h-5 mr-1 text-white"></i> Search
+                        <button type="submit" class="bg-brand-primary text-white px-4 md:px-8 rounded-r-md hover:bg-red-600 transition flex items-center justify-center font-bold text-base shadow-sm">
+                            <i data-lucide="search" class="w-5 h-5 md:mr-1 text-white"></i> <span class="hidden md:inline">Search</span>
                         </button>
                     </form>
                 </div>
 
                 <!-- Header Actions Row -->
-                <div class="flex items-center space-x-6 flex-shrink-0">
+                <div class="flex items-center space-x-4 md:space-x-6 flex-shrink-0">
                     
                     <!-- Block 1: App Download -->
-                    <a href="#" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                    <a href="#" class="hidden sm:flex items-center space-x-2 hover:text-brand-primary transition group">
                         <i data-lucide="smartphone" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                         <div class="flex flex-col">
                             <span class="text-[11px] text-gray-500 leading-tight">Download the</span>
@@ -64,12 +64,16 @@
                     </a>
 
                     <!-- Block 2: Account/Welcome -->
-                    <a href="login.html" class="flex items-center space-x-2 hover:text-brand-primary transition group">
+                    <a href="login.html" class="hidden sm:flex items-center space-x-2 hover:text-brand-primary transition group">
                         <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                         <div class="flex flex-col">
                             <span class="text-[11px] text-gray-500 leading-tight">Welcome</span>
                             <span class="text-[13px] font-bold text-brand-secondary group-hover:text-brand-primary tracking-tight leading-tight">Sign in / Register</span>
                         </div>
+                    </a>
+                    
+                    <a href="login.html" class="sm:hidden flex items-center hover:text-brand-primary transition group">
+                        <i data-lucide="user" class="w-7 h-7 text-gray-700 group-hover:text-brand-primary"></i>
                     </a>
 
                     <!-- Block 3: Cart -->
@@ -87,7 +91,7 @@
 
             <!-- Navigation Bar (Bottom) -->
             <div class="w-full border-t border-gray-100 shadow-[0_4px_10px_-4px_rgba(0,0,0,0.05)]">
-                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-8 text-[14px]">
+                <nav class="w-full max-w-[1920px] mx-auto px-4 md:px-8 xl:px-[7rem] py-2.5 flex items-center gap-4 md:gap-8 text-[14px]">
                     
                     <!-- Home Button -->
                     <a href="index.html" class="flex items-center bg-gray-100 rounded-full px-4 py-2 text-brand-secondary font-bold hover:bg-gray-200 transition flex-shrink-0 cursor-pointer">
